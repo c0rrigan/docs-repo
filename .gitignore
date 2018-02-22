@@ -1,0 +1,10 @@
+# Latex output files
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.pdf
+*.dvi
+#Vim
+*.swp
+*.swo

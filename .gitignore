@@ -5,6 +5,7 @@
 *.synctex.gz
 *.pdf
 *.dvi
+*.toc
 #Vim
 *.swp
 *.swo

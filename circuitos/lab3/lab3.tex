@@ -1,0 +1,327 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx,tocloft,siunitx,amssymb,amsmath,float}
+%\usepackage{subcaption,pgf,pgfplots}
+\usepackage[top=3cm,left=3cm,right=3cm]{geometry}
+%\graphicspath{{img/}}
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+\renewcommand\cftsubsubsecdotsep{\cftdot}
+\title{Lab 3:Kirchhoff's Laws}
+\author{
+    Sebastián Nava López\\
+    \and
+    Ericka Sabrina Pensamiento R.\\
+    \and
+    Salvador Palos Gil
+}
+%\captionsetup[subfigure]{justification=raggedright}
+\begin{document}
+\begin{titlepage}
+    \centering
+    {\Huge Instituto Politécnico Nacional}\\[3ex]
+    {\huge Escuela Superior de Cómputo}\\[8ex]
+    {\huge Fundamental Circuit Analysis}\\[12ex]
+    {\Large Lab 3:Kirchhoff's Laws}\\[20ex]
+    {\Large Group: 1CV7 Team: 7 \\[8ex]
+    Sebastian Nava López\\[4ex]
+    Sabrina Erika Pensamiento Robledo\\[4ex]
+    Salvador Palos Gil\\[18ex]
+    }
+    \large{Elaboration: March 13,2018\hspace{8em} Due date: March 20,2018}
+\end{titlepage}
+\tableofcontents
+\newpage
+\section{Introduction}
+\newpage
+\section{Development}
+%----------Circuit1
+\subsection{Verification of Kirchhoff's Voltage Law}
+\subsubsection{Calculations}
+In the first part, we wire the components in series as showed in the diagram:
+%----------Circut 1 Diagram
+Then, applying Kirchhoff's Voltage Law, we have that:
+\begin{gather*}
+    -V_{si}+VR_1+V_{s2}+VR_2+VR_3=0\\
+    -9+470I+5+330I+56I=0\\
+    1360I=9-5\\
+    I=\frac{4}{1360}\si{\ampere}\qquad I=\SI{2.941}{\milli\ampere}
+\end{gather*}
+Now that we have the current value we can calculate the voltage value for each segment in the
+circuit.\\
+For $V_{0A}$:
+\begin{align*}
+    V_{0A}&=-V_{S1}\\
+    V_{0A}&=-9V
+\end{align*}
+For $V_{AB}$:
+\begin{align*}
+    V_{AB}&=VR_1\\
+    V_{AB}&=IR_1\\
+    V_{AB}&=(\SI{2.941}{\milli\ampere})(\SI{470}{\ohm})\\
+    V_{AB}&=\SI{1.382}{\volt}
+\end{align*}
+For $V_{BC}$:
+\begin{align*}
+    V_{BC}&=V_{S2}\\
+    V_{BC}&=5V
+\end{align*}
+For $V_{CD}$:
+\begin{align*}
+    V_{CD}&=VR_2\\
+    V_{CD}&=IR_2\\
+    V_{CD}&=(\SI{2.941}{\milli\ampere})(\SI{330}{\ohm})\\
+    V_{CD}&=\SI{0.970}{\volt}
+\end{align*}
+For $V_{D0}$:
+\begin{align*}
+    V_{D0}&=VR_3\\
+    V_{D0}&=IR_1\\
+    V_{D0}&=(\SI{2.941}{\milli\ampere})(\SI{560}{\ohm})\\
+    V_{D0}&=\SI{1.647}{\volt}
+\end{align*}
+Finally, the sum of all voltages is:
+\begin{align*}
+    \sum\nolimits_{V}&=V_{0A}+V_{AB}+V_{BC}+V_{CD}+V_{D0}\\
+    \sum\nolimits_{V}&=-\SI{9}{\milli\watt}+\SI{1.382}{\milli\watt}+\SI{5}{\milli\watt}+\SI{0.970}{\milli\watt}+\SI{1.647}{\milli\watt}\\
+    \sum\nolimits_{V}&=\SI{-2.4e-4}{\milli\watt}\qquad
+    \therefore\sum\nolimits_{V}\approx 0\si{\volt}
+\end{align*}
+Then, Power(P) is given by:
+\[P=IV\]
+Power $P_{0A}$ is equal to:
+\begin{align*}
+    P_{0A}&=IV_{0A}\\
+    P_{0A}&=(\SI{2.941}{\milli\ampere})(\SI{-9}{\volt})\\
+    P_{0A}&=\SI{-26.469}{\milli\watt}\\
+\end{align*}
+For $P_{AB}$:
+\begin{align*}
+    P_{AB}&=IV_{AB}\\
+    P_{AB}&=(\SI{2.941}{\milli\ampere})(\SI{1.382}{\volt})\\
+    P_{AB}&=\SI{4.064}{\milli\watt}\\
+\end{align*}
+For $P_{BC}$:
+\begin{align*}
+    P_{BC}&=IV_{BC}\\
+    P_{BC}&=(\SI{2.941}{\milli\ampere})(\SI{5}{\volt})\\
+    P_{BC}&=\SI{14.705}{\milli\watt}\\
+\end{align*}
+For $P_{CD}$:
+\begin{align*}
+    P_{CD}&=IV_{CD}\\
+    P_{CD}&=(\SI{2.941}{\milli\ampere})(\SI{0.970}{\volt})\\
+    P_{CD}&=\SI{2.853}{\milli\watt}\\
+\end{align*}
+For $P_{D0}$:
+\begin{align*}
+    P_{D0}&=IV_{D0}\\
+    P_{D0}&=(\SI{2.941}{\milli\ampere})(\SI{1.647}{\volt})\\
+    P_{D0}&=\SI{4.844}{\milli\watt}\\
+\end{align*}
+The sum of all the powers is:
+\begin{align*}
+    \sum\nolimits_{P}&=P_{0A}+P_{AB}+P_{BC}+P_{CD}+P_{D0}\\
+    \sum\nolimits_{P}&=-\SI{-26.469}{\volt}+\SI{1.382}{\volt}+\SI{5}{\volt}+\SI{0.970}{\volt}+\SI{1.647}{\volt}\\
+    \sum\nolimits_{P}&=\SI{-2.941e-6}{\volt}\qquad
+    \therefore\sum\nolimits_{P}\approx \SI{0}{\watt}
+\end{align*}
+\subsubsection{Measurements}
+\begin{table}[H]
+    \centering
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+    Measurements & Theoretical & Measured & Theoretical & Measured &
+    Absorb(A)/\\
+     &  Value (\si{\volt}) &  Value (\si{\volt}) & Power (\si{\milli\watt}) & Power (\si{\milli\watt}) & Supply(S)\\\hline
+     Voltage $V_{0A}$ & 0 & 0 & 0 & 0 & 0\\\hline
+     Voltage $V_{AB}$ & 0 & 0 & 0 & 0 & 0\\\hline
+     Voltage $V_{BC}$ & 0 & 0 & 0 & 0 & 0\\\hline
+     Voltage $V_{CD}$ & 0 & 0 & 0 & 0 & 0\\\hline
+     Voltage $V_{D0}$ & 0 & 0 & 0 & 0 & 0\\\hline
+\end{tabular}
+\caption{Theoretical and experimental voltage values}\label{table:1}
+\end{table}
+\subsubsection{sim1}
+%----------Circuit2
+\subsection{Verification of Kirchhoff's Current Law}
+In the next part we built the circuit according to this diagram:
+%--------------------Diagram
+We can see that,in contrast with the previous circuit, now we have two meshes meaning that we
+have three different currents.In order to calculate the value of each current we must propose a
+direction of current for every mesh and assign polarity depending on the proposed direction.Then
+,using Kirchhoff's Current Law in the left mesh:
+\begin{gather*}
+    -V_{S1}+VR_1+VR_2=0\\
+    -9+470I_1+330(I_1-I_2)=0
+\end{gather*}\\[-7ex]
+\begin{equation}-800I_1-330I_2=9\label{eq:1}\end{equation}
+for the right mesh:
+\begin{gather*}
+    VR_2+VR_3+V_{S2}=0\\
+    330(I_2-I_1)+560I_2=0
+\end{gather*}\\[-7ex]
+\begin{equation}-330I_1+890I_2=-5\label{eq:2}\end{equation}
+With \eqref{eq:1} and  \eqref{eq:2} we have the next linear system:
+\[
+    \begin{cases}
+        -800I_1-330I_2=9\\
+        -330I_1+890I_2=-5
+    \end{cases}
+\]
+Expressing the system in matrices:
+\[
+    \begin{bmatrix}
+        -800 & -330\\
+        -330 & 890
+    \end{bmatrix}
+    \begin{bmatrix}
+        I_1\\
+        I_2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        9\\
+        -5
+    \end{bmatrix}
+\]
+Using Crammer's rule to solve the linear system:
+\begin{gather*}
+    \Delta=
+    \begin{bmatrix}
+        -800 & -330\\
+        -330 & 890
+    \end{bmatrix}
+    =-800\times 890-(-330)\times(-330)\\
+\Delta=603100\\
+    \begin{bmatrix}
+        -800 & -9\\
+        -330 & 5
+    \end{bmatrix}
+    =-800\times 5-(-9)\times(-330)\\
+    \Delta_1=6360\\
+\Delta_2=
+    \begin{bmatrix}
+        -9 & -330\\
+        5 & 890
+    \end{bmatrix}
+    =-9\times890-(-330)\times(5)\\
+    \Delta_2=-1030
+\end{gather*}
+Finally:
+\begin{gather*}
+    I_1=\frac{\Delta_1}{\Delta}=\frac{6360}{603100}\si{\ampere}\qquad I_1=\SI{10.545}{\milli\ampere}\\[2ex]
+    I_2=\frac{\Delta_2}{\Delta}=\frac{-1030}{603100}\si{\ampere}\qquad I_2=\SI{-1.708}{\milli\ampere}\\
+\end{gather*}
+Using Kirchhoff's Current Law in node A:
+%redibujar circuito
+\begin{gather*}
+I_1-I_2=I_3
+\end{gather*}
+The voltages for each segment are, for $V_{A0}$:
+\begin{align*}
+    V_{A0}&=V_{S1}\\
+    V_{A0}&=\SI{9}{\volt}
+\end{align*}
+For $V_{AB}$:
+\begin{align*}
+    V_{AB}&=I_1R_1\\
+    V_{AB}&=(\SI{10.545}{\milli\ampere})(\SI{470}{\ohm})\\
+    V_{AB}&=\SI{4.956}{\volt}
+\end{align*}
+For $V_{B0}$:
+\begin{align*}
+    V_{B0}&=I_1R_1\\
+    V_{B0}&=(\SI{10.545}{\milli\ampere})(\SI{330}{\ohm})\\
+    V_{B0}&=\SI{4.043}{\volt}
+\end{align*}
+For $V_{BC}$:
+\begin{align*}
+    V_{BC}&=I_1R_1\\
+    V_{BC}&=(\SI{10.545}{\milli\ampere})(\SI{470}{\ohm})\\
+    V_{BC}&=\SI{-956.48}{\milli\volt}
+\end{align*}
+For $V_{C0}$:
+\begin{align*}
+    V_{C0}&=V_{S2}\\
+    V_{C0}&=\SI{5}{\volt}
+\end{align*}
+Next, we calculate the power value for each segment of the circuit, in $P_{0A}$ we have:
+\begin{align*}
+    P_{0A}&=V_{0A}I_1\\
+    P_{0A}&=(-\SI{9}{\volt})(\SI{10.545}{\milli\ampere})\\
+    P_{0A}&=\SI{-94.905}{\milli\watt}
+\end{align*}
+In $P_{AB}$:
+\begin{align*}
+    P_{AB}&=V_{AB}I_1\\
+    P_{AB}&=(\SI{4.956}{\volt})(\SI{10.545}{\milli\ampere})\\
+    P_{AB}&=\SI{52.261}{\milli\watt}
+\end{align*}
+In $P_{B0}$:
+\begin{align*}
+    P_{B0}&=V_{B0}I_3\\
+    P_{B0}&=(\SI{4.043}{\volt})(\SI{12.253}{\milli\ampere})\\
+    P_{B0}&=\SI{49.539}{\milli\watt}
+\end{align*}
+In $P_{BC}$:
+\begin{align*}
+    P_{BC}&=V_{BC}I_2\\
+    P_{BC}&=(\SI{10.545}{\milli\volt})(\SI{10.545}{\milli\ampere})\\
+    P_{BC}&=\SI{-1.634}{\milli\watt}
+\end{align*}
+In $P_{C0}$:
+\begin{align*}
+    P_{C0}&=V_{C0}I_2\\
+    P_{C0}&=(\SI{5}{\ohm})(\SI{1.708}{\milli\ampere})\\
+    P_{C0}&=\SI{8.540}{\milli\watt}
+\end{align*}
+Finally, the sum of all powers is:
+\begin{gather*}
+    \sum\nolimits_{P}=P_{A0}+P_{AB}+P_{B0}+P_{BC}+P_{C0}\\
+    \sum\nolimits_{P}=\SI{-94.905}{\milli\watt}+\SI{52.261}{\milli\watt}+\SI{49.539}{\milli\watt}-\SI{1.634}{\milli\watt}+\SI{8.540}{\milli\watt}\\
+    %check!!!!!!!!!!!!!!!!
+    \sum\nolimits_{P}=0
+\end{gather*}
+\subsubsection{Measurements}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}\hline
+        Measurements & Theoretical Value & Measured Value\\
+        & (\si{\milli\ampere}) & (\si{\milli\ampere})\\\hline 
+        Current $I_1$ (Left branch) & 0 & 0 \\\hline
+        Current $I_2$ (Center branch) & 0 & 0 \\\hline
+        Current $I_3$ (Right branch) & 0 & 0 \\\hline
+    \end{tabular}
+    \caption{Theoretical and measured current values}
+    \label{table:2}
+\end{table}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|c|c|c|c|c|c|c|}\hline
+    Measurements & Theoretical & Measured & Theoretical & Measured & Measured &
+    Absorb(A)/\\
+        &  Value (\si{\volt}) &  Value (\si{\volt}) &  Power (\si{\milli\watt}) & Current
+        (\si{\milli\ampere}) & Power (\si{\milli\watt}) & Supply(S)\\\hline
+        Voltage $V_{0A}$ & 0 & 0 & 0 & 0 & 0 & 0 \\\hline
+        Voltage $V_{AB}$ & 0 & 0 & 0 & 0 & 0 & 0 \\\hline
+        Voltage $V_{B0}$ & 0 & 0 & 0 & 0 & 0 & 0 \\\hline
+        Voltage $V_{BC}$ & 0 & 0 & 0 & 0 & 0 & 0 \\\hline
+        Voltage $V_{C0}$ & 0 & 0 & 0 & 0 & 0 & 0 \\\hline
+    \end{tabular}}
+    \caption{Theoretical and measured voltage values}
+    \label{table:3}
+\end{table}
+\subsubsection{sim1}
+\section{Questions}
+\section{Conclusions}
+{\large Sabrina:}\\
+\\[2ex]
+{\large Salvador:}\\
+\\[2ex]
+{\large Sebastián:}\\
+\end{document}

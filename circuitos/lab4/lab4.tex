@@ -27,7 +27,7 @@
     {\huge Escuela Superior de Cómputo}\\[8ex]
     {\huge Fundamental Circuit Analysis}\\[12ex]
     {\Large Lab 4: Oscilloscope Usage}\\[20ex]
-    {\Large Group: 1CV7 Team: 7 \\[8ex]
+    {\Large Group: 1C.5 Team: 7 \\[8ex]
     Sebastian Nava López\\[4ex]
     Sabrina Erika Pensamiento Robledo\\[4ex]
     Salvador Palos Gil\\[18ex]
@@ -41,7 +41,7 @@ An oscilloscope is a piece of equipment used to measure electronic signals, is a
 
 There is a very wide variety of oscilloscopes, namely digital and analog oscilloscopes, and their variations such as:
 \subsubsection*{Digital oscilloscopes}
-The basic concept behind digital oscilloscopes / DSOs is the conversion of the incoming analogue signal into a digital format where it can be processed using digital signal processing techniques.
+The basic concept behind digital oscilloscopes/DSOs is the conversion of the incoming analogue signal into a digital format where it can be processed using digital signal processing techniques.
 When the signal enters the scope it is first pre-conditioned by some analogue circuits to ensure that the optimum signal is presented to the next stage.
 This next stage involves the acquisition of the digital samples. To achieve this, an analog-to-digital converter, ADC, takes samples are discrete regular time intervals.
 \begin{figure}[H]
@@ -68,7 +68,7 @@ The difference in parameters such as sampling rates, memory depth, number of cha
 Here’s an image to explain it better:     
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.7\linewidth]{img/intro/how-works}
+    \includegraphics[width=.5\linewidth]{img/intro/how-works}
     \caption{\textit{
 1) Inside the cathode-ray tube (CRT), the electron gun (yellow) fires a beam of electrons (green dots) toward the phosphor screen. 2) With no signal connected to the scope, a timing circuit powers electromagnet coils (blue) that make the electron beam sweep slowly across the screen from left to right (effectively powering the x-axis of the graph). 3) When you feed an undulating signal (orange) into the oscilloscope's probes, a different circuit powers a perpendicular pair of coils (red) that make the beam sweep up and down. 4) Acting together, the coils make the electron beams sweep out an up-and-down, wiggling trace (a sine wave).
 }}
@@ -119,7 +119,7 @@ also, the peak-to-peak voltage($V_{pp}$) for channel 2(CH2) is:
 \[V_{pp2} = \SI{4.84}{\volt}\times8\qquad\therefore V_{pp2} = 40V_{pp}\]
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.7\linewidth,angle=180]{img/part1/4}
+    \includegraphics[width=.5\linewidth,angle=180]{img/part1/4}
     \caption{Oscilloscope showing the test signal on channel 2 (CH2)}
 \end{figure}
 \subsection{Testing the signal generator}
@@ -178,9 +178,9 @@ alternating between the sine, triangular and squared wave.\\[2ex]
     \end{subfigure}
     \caption{Square wave generation and display}
 \end{figure}
-Once with the triangular wave, we set the offset of the signal generator to the maximum, wich
+Once with the triangular wave, we set the offset of the signal generator to the maximum, which
 was $5 V$, changing the offset moved the signal above in relation to the center of the display, then, when
-we set the offset in the negative maximum, the signal moved below the center of the diplay.\\
+we set the offset in the negative maximum, the signal moved below the center of the display.\newpage
 %Poner foto y valores de máximo y mínimo offset
 {\textbf{Minimum Offset}}
 \begin{gather*}
@@ -229,10 +229,11 @@ We changed the mode of the oscilloscope yo X-Y, then, with each channel in groun
 the trace for each channel to match the point at the center of the display. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.7\linewidth]{img/part3/6}
+    \includegraphics[width=.5\linewidth]{img/part3/6}
     \caption{Oscilloscope with both X and Y channels in ground coupling matching the center of the
     grid}
 \end{figure}
+\subsubsection{Measurements}
 Later, we clipped the test probes to certain points of the circuit as follows:
 \begin{enumerate}
     \item Positive of channel X to point A and negative of channel X to point C
@@ -241,7 +242,7 @@ Later, we clipped the test probes to certain points of the circuit as follows:
 %Primera foto
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.7\linewidth]{img/part3/2}
+    \includegraphics[width=.5\linewidth]{img/part3/2}
     \caption{Oscilloscope with channels connected according to steps 1 and 2}
 \end{figure}
 \begin{enumerate}
@@ -252,7 +253,7 @@ channels to point C.
 %Segunda foto
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.7\linewidth,angle=180]{img/part3/3}
+    \includegraphics[width=.5\linewidth,angle=180]{img/part3/3}
     \caption{Oscilloscope with channels connected according to step 3}
 \end{figure}
 \begin{enumerate}
@@ -262,7 +263,7 @@ channels to point C.
 %Tercera foto
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.7\linewidth]{img/part3/5}
+    \includegraphics[width=.5\linewidth]{img/part3/5}
     \caption{Oscilloscope with channels connected according to step 4}
 \end{figure}
 \begin{enumerate}
@@ -273,7 +274,7 @@ channels to point A and Y channel inverted.
 %Cuarta foto
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.7\linewidth]{img/part3/1}
+    \includegraphics[width=.5\linewidth]{img/part3/1}
     \caption{Oscilloscope with channels connected according to step 4}
 \end{figure}
 \subsection{The oscilloscope as an X-Y plotter with AC currents}
@@ -300,7 +301,7 @@ graph, we could clearly see the phase shift between the graphs.
 \subsubsection{Measurements}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.7\linewidth,angle=180]{img/part4/5}
+    \includegraphics[width=.5\linewidth,angle=180]{img/part4/5}
     \caption{Oscilloscope showing the phase shift between the input and the output of the circuit
     using the $Y(t)$ mode}
 \end{figure}
@@ -319,7 +320,7 @@ mode, after adjusting voltage per division in both channels, we could spot a sli
 %!!!!!!!!Insertar fotos de elipse y curvas desfasadas
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.7\linewidth,angle=180]{img/part4/6}
+    \includegraphics[width=.5\linewidth,angle=180]{img/part4/6}
     \caption{Oscilloscope showing the phase shift between the input and the output of the circuit
     using the $X-Y$ mode}
 \end{figure}
@@ -363,11 +364,19 @@ When an ascending diagonal to the left is obtained, it means that both frequenci
 When a circumference is obtained, it means that both frequencies are equal but offset by a right angle (90º).
 
 \textit{\textbf{What are the operating modes Y (t) and XY used for?}}\\
-There are vertical and horizontal amplifiers coupled to the aforementioned vertical and horizontal deflection plates. In its most usual mode of operation, the waveform under study is applied to the vertical input terminals. The vertical amplifier increases the amplitude sufficiently to cause an appreciable vertical deflection of the electronic beam. The horizontal deviation of the beam is achieved with a sweep generator, which is generally called "time base". Its mission is to elaborate tensions in "sawtooth" that are those that "move" the beam horizontally. If the period of the signal to be studied (vertical) is the same as the signal elaborated by the "time base", the image on the screen appears "fixed". Figure 2 shows in the upper part (curve a), the periodic variations in time of a voltage of period T, applied to the vertical deflection plates, ie Y = Y (t). In the horizontal deflection plates, the sweep generator supplies a sawtooth signal with the same period T (curve b), that is, X = X (t). To achieve a stable image, the time base must trigger "synchronously" with the signal to be measured. Sometimes this is done by deriving a trigger pulse from the amplified vertical signal to the sweep generator and other times it is convenient to trigger the sweep generator with an external signal
+There are vertical and horizontal amplifiers coupled to the aforementioned vertical and horizontal
+deflection plates. In its most usual mode of operation, the waveform under study is applied to the
+vertical input terminals. The vertical amplifier increases the amplitude sufficiently to cause an
+appreciable vertical deflection of the electronic beam. The horizontal deviation of the beam is
+achieved with a sweep generator, which is generally called "time base". Its mission is to elaborate
+tensions in "sawtooth" that are those that "move" the beam horizontally. If the period of the signal
+to be studied (vertical) is the same as the signal elaborated by the "time base", the image on the
+screen appears "fixed". Figure 2 shows in the upper part (curve a), the periodic variations in time
+of a voltage of period T, applied to the vertical deflection plates, i.e. Y = Y (t). In the horizontal deflection plates, the sweep generator supplies a sawtooth signal with the same period T (curve b), that is, X = X (t). To achieve a stable image, the time base must trigger "synchronously" with the signal to be measured. Sometimes this is done by deriving a trigger pulse from the amplified vertical signal to the sweep generator and other times it is convenient to trigger the sweep generator with an external signal
 \begin{figure}[H]
     \centering
     \includegraphics[width=.4\linewidth]{img/intro/waves}
-    \caption{Diagram of the oscilloscope}
+    \caption{Individual signals for $X$ and $Y$ channel}
 \end{figure}
 The oscilloscope also allows to visualize the composition of two signals introduced by the two input channels and, in this case, it is said that the oscilloscope is operating in X-Y mode. Applying sinusoidal functions to both channels, the X-T mode would display two sine-type functions on the screen, while in X-Y mode an ellipse would be obtained on channel II.
 
@@ -375,14 +384,33 @@ The oscilloscope also allows to visualize the composition of two signals introdu
 \textit{\textbf{Which means by coupling in D.C.?}}\\
 That when the DC coupling configuration provides a direct electrical path in the scope of application; It accepts all kinds of signals, including DC voltages that do not change, the DC voltages variable in time, AC, and combinations of AC and DC. In the latter case, technicians call an AC signal with a DC offset. Sometimes, CC offsets can be annoying; The voltage of the total signal can push the signal beyond the top or bottom of the screen, hiding the parts you want to see. However, in most other circumstances, DC coupling is all you need.
 
-\textit{\textbf{What is an offset signal?{}}\\
+\textit{\textbf{What is an offset signal?}}\\
+The offset of an alternating signal can be defined as the level of continuous that adds to an alternating signal. Thus, if the signal is centered at the origin, it is said that the offset level is 0. If it is displaced upwards, the offset is positive, whereas if it is displaced downwards, it will be negative.
+
+Using the offset adjustment control, you can control the offset level that is added to the alternating signal of the function generator. Turning clockwise varies the offset positively and counterclockwise negatively.
+
+\textit{\textbf{Which means that a signal is out of phase?}}\\
+When two sinusoidal signals of the same frequency are compared, it may happen that both are not in phase, that is, the steps by equivalent points of both signals do not coincide in time. In this case it is said that both signals are out of phase, being able to measure the phase shift with a simple rule of three:
+Being t the delay time between one signal and another.
+
 \section{Conclusions}
 {\large Sabrina:}\\
-content
+Oscilloscopes are utilized by everybody from TV repair professionals to physicists. They are key for
+anybody planning or repairing electronic gear. The helpfulness of an oscilloscope is not constrained
+to the universe of hardware. With the correct transducer, an oscilloscope can quantify a wide range
+of wonders. Therefore, this tool has a very high importance for the engineer
 \\[2ex]
 {\large Salvador:}\\
-content
+In this practice, the oscilloscope and the voltage signal generator were used. The use of them was
+explained, in the oscilloscope the signal of adjustment was evaluated, as a function of the time,
+after which the signal generator was used to measure them in an oscilloscope. A circuit was then
+assembled and measured in $xy$ function.
 \\[2ex]
-content
 {\large Sebastián:}\\
+We learned to use a very important instrument for the analysis of both DC and AC circuits, which is
+the oscilloscope. This instrument is specially important when analysing alternate current circuits,
+which are the most common in the real world, because of the nature of said signals which vary between
+time, contrary to the direct current circuits which are always constant, allowing us to see the
+changes between time using one or two signals, see the form of the wave of a given signal, and
+another useful graphic representations that aid the analysis of circuits. 
 \end{document}

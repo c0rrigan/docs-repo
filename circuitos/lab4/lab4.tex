@@ -46,18 +46,66 @@ adjust the relation between volts per division and seconds per division displaye
 according to the label in the oscilloscope, a clear square wave with the volts per division
 set at \SI{5}{\volt} and the frequency at \SI{300}{\hertz}. Afterwards we proceed in the same
 way, now using the leads connected in channel two (CH2).
-\subsubsection{Measurements}
-\subsubsection{Simulations}
+%!!!Fotos Parte1
 \subsection{Testing the signal generator}
 In the second part of the experiment we connected the signal generator to the oscilloscope and
 set the generator to a frequency of \SI{10}{\kilo\hertz} and a frequency of $10 V_{pp}$,
 alternating between the sine, triangular and squared waveforms
-\subsubsection{Measurements}
-\subsubsection{Simulations}
+\subsubsection*{Sine wave}
+\begin{gather*}
+    Amplitude\ V_{pp}: \SI{5}{\volt}\\
+    Period(T): \SI{100}{\micro\second}\\
+    Frequence(f): \SI{10}{\kilo\hertz}
+\end{gather*}
 Once with the triangular waveform, we set the offset of the signal generator to the maximum, wich
-was $5 V$, the change in the offset moved the signal above the center of the display, then, when
-we set the 
+was $5 V$, changing the offset moved the signal above in relation to the center of the display, then, when
+we set the offset in the negative maximum, the signal moved below the center of the diplay.
+%Poner foto y valores de máximo y mínimo offset
+\subsection{The oscilloscope as an X-Y plotter with DC currents}
+Using the circuit shown in picture:
 
+We changed the mode of the oscilloscope yo X-Y, then, with each channel in ground coupling, we set
+the trace for each channel to match the point at the center of the display, later, we clipped the
+test probes to certain points of the circuit as follows:
+1)Positive of channel X to point A and negative of channel X to point C
+2)Positive of channel Y to point B and negative of channel Y to point C
+%Primera foto
+3)Positive of channel X to point A and positive of channel Y to point B, the negatives of both
+channels to point C.
+%Segunda foto
+4)Same connection but with channel Y inverted.
+%Tercera foto
+4)Positive of channel X to point B, positive of channel Y to point C, the negatives of both
+channels to point A and Y channel inverted.
+%Cuarta foto
+\subsection{The oscilloscope as an X-Y plotter with AC currents}
+In the last part of the experiment, we used the following circuit:
+
+then, with the oscilloscope set with AC coupling and Y(t) mode, we clipped the test probes to
+their respective points according to the diagram shown before. After adjusting the size of each
+graph, we could clearly see the phase shift between the graphs.
+%!!!!Foto de fases
+We have that:
+\begin{gather*}
+    Volts/div = \SI{2}{\volt}\\
+    Time/div = \SI{1}{\micro\second}
+\end{gather*}
+If phase shift($\phi$) is equal to:
+\[\frac{(\ang{360})(a)}{T}\]
+where $a$ is the time difference between the signals, therefore:
+\[\phi=\frac{(\ang{360})(\SI{0.4}{\second})}{\SI{3.2}{\second}}\qquad\therefore\phi=\ang{45}\]
+Next, we changed to $X-Y$
+mode, after adjusting voltage per division in both channels, we could spot a slightly rotated ellipse.
+%!!!!!!!!Insertar fotos de elipse y curvas desfasadas
+We have that:
+\begin{gather*}
+    Volts/div = \SI{2}{\volt}\\
+\end{gather*}
+Phase shift($\phi$) is given by:
+\[\phi=\pm\sin^{-1}\Big(\frac{B}{A}\Big)\]
+where $A$ is the y-coordinate of the peak of the ellipse in the first quadrant, and $B$ is the
+y-coordinate where the ellipse intersects the x-axis, therefore:
+\[\phi=\pm\sin^{-1}\Big(\frac{1.5}{2.1}\Big)\qquad\therefore\phi=\ang{45.584}\]
 \section{Questions}
 \section{Conclusions}
 {\large Sabrina:}\\

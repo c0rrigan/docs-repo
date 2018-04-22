@@ -1,0 +1,102 @@
+\documentclass[letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tocloft,siunitx,amssymb,amsmath,graphicx,subcaption}
+\usepackage[top=3cm,left=3cm,right=3cm]{geometry}
+\usepackage{float,pgf,pgfplots}
+\usepackage[american]{circuitikz}
+\graphicspath{{img/}}
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+\renewcommand\cftsubsubsecdotsep{\cftdot}
+\title{Lab :}
+\author{
+    Sebastián Nava López\\
+    \and
+    Ericka Sabrina Pensamiento R.\\
+    \and
+    Salvador Palos Gil
+}
+%\captionsetup[subfigure]{justification=raggedright}
+\begin{document}
+\begin{titlepage}
+    \centering
+    {\Huge Instituto Politécnico Nacional}\\[3ex]
+    {\huge Escuela Superior de Cómputo}\\[8ex]
+    {\huge Fundamental Circuit Analysis}\\[12ex]
+    {\Large Lab : }\\[20ex]
+    {\Large Group: 1CV5 Team: 7 \\[8ex]
+    Sebastian Nava López\\[4ex]
+    Sabrina Erika Pensamiento Robledo\\[4ex]
+    Salvador Palos Gil\\[18ex]
+    }
+    \large{Elaboration:?? \hspace{8em} Due date:??}
+\end{titlepage}
+\tableofcontents
+\newpage
+\section{Introduction}
+\newpage
+\section{Development}
+%\begin{figure}
+%    \centering
+%\begin{circuitikz}
+%    \draw
+%        (0,2) to [V](0,0)
+%        (0,2) -- (0,4)
+%        (0,4) to [R=$\SI{680}{\ohm}(R_1)$](3,4)
+%        to [V](6,4) to
+%        (6,2) to [R,*-](3,2)
+%        to [R,*-*](0,2)
+%        (6,2) to [R=$\SI{1}{\kilo\ohm}(R_5)$](6,0) -- (0,0)
+%        (3,0) to [R=$\SI{470}{\ohm}(R_4)$,*-](3,2)
+%        {
+%            [anchor = south east](5.4,2.2) node {$\SI{560}{\ohm}(R_3)$}
+%            [anchor = south east](2.4,2.2) node {$\SI{1}{\kilo\ohm}(R_3)$}
+%            [anchor = south east](0,1.4) node {$\SI{9}{\volt}(V_{S1})$}
+%            [anchor = south east](5.4,4.4) node {$\SI{5}{\volt}(V_{S2})$}
+%        }
+%        ;
+%\end{circuitikz}
+%\end{figure}
+\begin{figure}
+    \centering
+\begin{tabular}{|c|c|c|c|}\hline
+    Measurements & Theoretical Value(\si{\milli\ampere}) & Measured Value(\si{\milli\ampere}) &
+    Simulated Value (\si{\milli\ampere})\\\hline
+    $I_{1}$ & & & \\\hline
+    $I_{2}$ & & & \\\hline
+    $V_{R1}$ & & & \\\hline 
+    $V_{R2}$ & & & \\\hline 
+    $V_{R3}$ & & & \\\hline 
+    $V_{R4}$ & & & \\\hline 
+    $V_{R5}$ & & & \\\hline 
+\end{tabular}
+\end{figure}
+\section{Questions}
+\textit{\textbf{Explain the operation of the oscilloscope}}\\
+%ans
+\textit{\textbf{What's the function of the signal generator?}}\\
+%ans
+\textit{\textbf{What are the Lissajous graphs for?}}\\
+%ans
+\textit{\textbf{What are the operating modes Y (t) and XY used for?}}\\
+%ans
+\textit{\textbf{Which means by coupling in D.C.?}}\\
+%ans
+\textit{\textbf{What is an offset signal?}}\\
+%ans
+\textit{\textbf{Which means that a signal is out of phase?}}\\
+%ans
+\section{Conclusions}
+{\large Sabrina:}\\
+%
+\\[2ex]
+{\large Salvador:}\\
+%
+\\[2ex]
+{\large Sebastián:}\\
+%texto
+\end{document}

@@ -41,7 +41,7 @@
 \newpage
 \section{Development}
 \subsection{Verification of mesh analysis in DC}
-Using a circuit as the one shown in fig: 
+Using a circuit as the one shown in figure \ref{fig:diag1}: 
 \begin{figure}[H]
     \centering
 \begin{circuitikz}
@@ -62,11 +62,13 @@ Using a circuit as the one shown in fig:
         }
         ;
 \end{circuitikz}
+    \caption{Circuit diagram}
+    \label{fig:diag1}
 \end{figure}
 we measured current in each mesh ,and voltage values in each resistance.
 \subsubsection{Calculations}
 Using mesh analysis to calculate currents, we assign the direction of all currents clockwise, as
-shown:
+shown in \ref{fig:diag2}:
 \begin{figure}[H]
     \centering
     \begin{circuitikz}
@@ -93,24 +95,26 @@ shown:
         }
         ;
     \end{circuitikz}
+    \caption{Circuit diagram with proposed current directions}
+    \label{fig:diag2}
 \end{figure}
-Aplying Kirchhoff's Current Law(KCL) in mesh 1:
+Aplying Kirchhoff's Current Law(KCL) in mesh 1 according to \ref{fig:diag2}:
 \begin{gather*}
     V_{R3}+V_{R2}+V_{R1}+V_{S2} = 0\\
     560(I_1-I_3)+1000(I_1-I_2)+680I_1+5 = 0
-\end{gather*}\\[-7.5ex]
+\end{gather*}\\[-6.5ex]
 \begin{equation}2240I_1-1000I_2-560I_3 = -5\label{eq:1}\end{equation}
     in mesh 2:
 \begin{gather*}
     -V_{S1}+V_{R2}+V_{R4} = 0\\
     -9+1000(I_2-I_1)+470(I_2-I_3) = 0
-\end{gather*}\\[-7.5ex]
+\end{gather*}\\[-6.5ex]
 \begin{equation}-1000I_1+1470I_2-470I_3 = 5\label{eq:2}\end{equation}
     in mesh 3:
 \begin{gather*}
     V_{R4}+V_{R3}+V_{R5} = 0\\
     470(I_3-I_2)+560(I_3-I_1)+100I_3 = 0
-\end{gather*}\\[-7.5ex]
+\end{gather*}\\[-6.5ex]
 \begin{equation}-560I_1-470I_2-2030I_3 = 0\label{eq:3}\end{equation}
     therefore we have the following linear equation system:
     \[
@@ -290,7 +294,7 @@ Voltage in $R_5$:
 \subsubsection{Simulation}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.8\linewidth]{sim1}
+    \includegraphics[width=.56\linewidth]{sim1}
     \caption{Circuit simulation}
 \end{figure}
 \subsubsection{Measurements}

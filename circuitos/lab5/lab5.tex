@@ -38,6 +38,80 @@
 \tableofcontents
 \newpage
 \section{Introduction}
+Mesh analysis (or the mesh current method) is a method that is used to solve planar circuits for the currents 
+(and indirectly the voltages) at any place in the electrical circuit. Planar circuits are circuits that can be 
+drawn on a plane surface with no wires crossing each other. A more general technique, called loop analysis 
+(with the corresponding network variables called loop currents) can be applied to any circuit, planar or not.
+Mesh analysis and loop analysis both make use of Kirchhoff’s voltage law to arrive at a set 
+of equations guaranteed to be solvable if the circuit has a solution. Mesh analysis is usually easier to use 
+when the circuit is planar, compared to loop analysis
+%Fig1
+Mesh analysis works by arbitrarily assigning mesh currents in the essential meshes (also referred to as independent meshes). 
+
+An essential mesh is a loop in the circuit that does not contain any other loop. The figure labels 
+the essential meshes with one, two, and three.
+%Fig2
+A mesh current is a current that loops around the essential mesh and the equations are set solved in terms 
+of them. A mesh current may not correspond to any physically flowing current, but the physical currents are 
+easily found from them. It is usual practice to have all the mesh currents loop in the same direction
+. This helps prevent errors when writing out the equations. The convention is to have all the mesh currents looping 
+in a clockwise direction.[3] Figure 2 shows the same circuit from Figure 1 with the mesh currents 
+labeled.
+%Fig3
+Solving for mesh currents instead of directly applying Kirchhoff's current law and Kirchhoff's voltage law can 
+greatly reduce the amount of calculation required. This is because there are fewer mesh currents than there are physical 
+branch currents. In figure 2 for example, there are six branch currents but only three mesh
+currents.\\[1ex]
+{\large\textbf{Setting up the equations}}\\[2ex]
+Each mesh produces one equation. These equations are the sum of the voltage drops in a complete loop of 
+the mesh current. For problems more general than those including current and voltage sources, the voltage drops will 
+be the impedance of the electronic component multiplied by the mesh current in that loop.
+
+If a voltage source is present within the mesh loop, the voltage at the source is either added or 
+subtracted depending on if it is a voltage drop or a voltage rise in the direction of the mesh current
+. For a current source that is not contained between two meshes, the mesh current will take the positive 
+or negative value of the current source depending on if the mesh current is in the same or opposite direction 
+of the current source. The following is the same circuit from above with the equations needed to solve for 
+all the currents in the circuit.
+\[
+    \begin{cases}
+        Mesh\ 1:I_1=I_s=0\\
+        Mesh\ 2:-V_s+R_1(I_2-I_1)+\frac{1}{sC}(I_2-I_3)=0\\
+        Mesh\ 3:\frac{1}{sC}(I_3-I_2)+R_2(I_3-I_1)+sLI_3=0
+    \end{cases}
+    \]
+Once the equations are found, the system of linear equations can be solved by using any technique to
+solve linear equations.\\[1ex]
+{\large\textbf{Special cases}}\\[2ex]
+\textbf{Supermesh}
+%Fig4
+A supermesh occurs when a current source is contained between two essential meshes. The circuit is first treated as 
+if the current source is not there. This leads to one equation that incorporates two mesh currents. Once 
+this equation is formed, an equation is needed that relates the two mesh currents with the current source. 
+This will be an equation where the current source is equal to one of the mesh currents minus the other. The 
+following is a simple example of dealing with a supermesh.
+\[
+    \begin{cases}
+        Mesh\ 1,2: -V_s+R_1I_1+R_2I_2=0\\
+        Dependent\ Variable:I_s=I_2-I_1
+    \end{cases}
+    \]
+\textbf{Dependent sources}
+
+A dependent source is a current source or voltage source that depends on the voltage or current of another element 
+in the circuit. When a dependent source is contained within an essential mesh, the dependent source should be 
+treated like an independent source.
+%Fig5
+After the mesh equation is formed, a dependent source equation is needed. This equation is generally called a 
+constraint equation. This is an e quation that relates the dependent source’s variable to the voltage or 
+current that the source depends on in the circuit. The following is a simple example of a dependent source.
+\[
+    \begin{cases}
+        Mesh\ 1: -V_s+R_1I_1+R_3(I_1-I_2)=0\\
+        Mesh\ 2:R_2I_2+3I_x+R_3(I_2-I_1)=0\\
+        Dependent\ Variable:I_x=I_1-I_2
+    \end{cases}
+    \]
 \newpage
 \section{Development}
 \subsection{Verification of mesh analysis in DC}
@@ -264,33 +338,33 @@ I_3 = \frac{\Delta_3}{\Delta} = \frac{8049200}{3172200000}\qquad\therefore I_3 =
 Now that we have values for all the currents, voltage values in each resistor are given as follows:
 Voltage in $R_1$:
 \begin{gather*}V_{R1} = R_1\cdot I_1
-    =(\SI{680}{\ohm})(\SI{2.151}{\milli\ampere})\\\therefore V_{R1} =
+    =(\SI{680}{\ohm})(\SI{2.151}{\milli\ampere})\qquad\therefore V_{R1} =
 \SI{1.463}{\volt}
 \end{gather*}
 Voltage in $R_2$:
 \begin{gather*}V_{R2} = R_2\cdot(I_2-I_1)
-    =(\SI{1}{\kilo\ohm})(\SI{8.397}{\milli\ampere}-\SI{2.151}{\milli\ampere})\\\therefore V_{R2} =
+    =(\SI{1}{\kilo\ohm})(\SI{8.397}{\milli\ampere}-\SI{2.151}{\milli\ampere})\qquad\therefore V_{R2} =
 \SI{6.246}{\volt}
 \end{gather*}
 Voltage in $R_3$:
 \begin{gather*}V_{R3} = R_3\cdot(I_3-I_1)
-    =(\SI{560}{\ohm})(\SI{2.537}{\milli\ampere}-\SI{2.151}{\milli\ampere})\\\therefore V_{R3} =
+    =(\SI{560}{\ohm})(\SI{2.537}{\milli\ampere}-\SI{2.151}{\milli\ampere})\qquad\therefore V_{R3} =
 \SI{0.216}{\volt}
 \end{gather*}
 Voltage in $R_4$:
 \begin{gather*}V_{R4} = R_4\cdot(I_2-I_3)
-    =(\SI{470}{\ohm})(\SI{8.397}{\milli\ampere}-\SI{2.537}{\milli\ampere})\\\therefore V_{R4} =
+    =(\SI{470}{\ohm})(\SI{8.397}{\milli\ampere}-\SI{2.537}{\milli\ampere})\qquad\therefore V_{R4} =
 \SI{2.754}{\volt}
 \end{gather*}
 Voltage in $R_5$:
 \begin{gather*}V_{R5} = R_5\cdot I_3
-    =(\SI{1}{\kilo\ohm})(\SI{2.537}{\milli\ampere})\\\therefore V_{R5} =
+    =(\SI{1}{\kilo\ohm})(\SI{2.537}{\milli\ampere})\qquad\therefore V_{R5} =
 \SI{2.537}{\volt}
 \end{gather*}
 \subsubsection{Simulation}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.8\linewidth]{sim1}
+    \includegraphics[width=.65\linewidth]{sim1}
     \caption{Circuit simulation}
 \end{figure}
 \subsubsection{Measurements}
@@ -311,27 +385,39 @@ Voltage in $R_5$:
     \caption{Values from the mesh currents measured, calculated and simulated}
 \end{figure}
 \section{Questions}
-\textit{\textbf{Explain the operation of the oscilloscope}}\\
-%ans
-\textit{\textbf{What's the function of the signal generator?}}\\
-%ans
-\textit{\textbf{What are the Lissajous graphs for?}}\\
-%ans
-\textit{\textbf{What are the operating modes Y (t) and XY used for?}}\\
-%ans
-\textit{\textbf{Which means by coupling in D.C.?}}\\
-%ans
-\textit{\textbf{What is an offset signal?}}\\
-%ans
-\textit{\textbf{Which means that a signal is out of phase?}}\\
-%ans
+\textit{\textbf{What's a mesh in an electrical circuit}}
+
+A mesh is any closed path in an electrical circuit.\\
+\textit{\textbf{Describe what the mesh analysis method in circuit theory consists of?}}
+
+Mesh analysis (sometimes referred to as a mesh current method) is a technique used to determine the voltage 
+or current of any element in a flat circuit. A flat circuit is one that can be drawn in 
+a plane so that no branch is below or above any other. This technique is based on Kirchhoff'
+s law of tensions. The advantage of using this technique is that it creates a system of equations to 
+solve the circuit, minimizing in some cases the process to find a voltage or current in a circuit.\\
+\textit{\textbf{What are the advantages of applying mesh analysis ?}}
+
+It helps us to reduce circuits, provides the basics for all general analysis methods (connections and devices), 
+help in the analysis of nodes,and mainly it helps us by giving a system of equations to then find what we 
+want in the circuit.\\
+\textit{\textbf{The calculated values of voltage and current in each resistor coincide with those measured.Why?}}
+
+Yes, the calculated and measured values coincide, because the mesh analysis method helped us by giving a system of equations that predicts the behavior of the components that act on each mesh of the circuit.
 \section{Conclusions}
 {\large Sabrina:}\\
 %
 \\[2ex]
 {\large Salvador:}\\
-%
+Mesh analysis is fundamental to know how each component of the circuit interacts and to be able to predict 
+what each element in the circuit will experience. In practice we used the analysis to understand that if 
+the current and voltage that the elements experience is different when there are 2 voltage sources.
 \\[2ex]
 {\large Sebastián:}\\
-%texto
+We used mesh analysis to find the currents in a circuit wich contains three meshes; first, we
+described the voltages flowing across each mesh and, using Ohm's Law, we obtained three expresions
+wich had three different variables, the currents. Finally, solving the linear equations system
+formed by this three, we had the current values in each mesh, with this values we determined the
+currents passing in each resistor. After wiring the same circuit, we verified that our measured
+currents and voltages were closer to our calculated values, thus confirming our mesh analysis
+applied to our circuit.
 \end{document}

@@ -9,3 +9,5 @@
 #Vim
 *.swp
 *.swo
+#Spice
+*.raw

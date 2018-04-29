@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{tocloft,siunitx,amssymb,amsmath,graphicx,float}
 \usepackage[top=3cm,left=3cm,right=3cm]{geometry}
-%\usepackage{float,pgf,pgfplots}
+%\usepackage{pgf,pgfplots}
 %\usepackage[american]{circuitikz}
 \graphicspath{{img/}}
 \renewcommand\cftsecfont{\normalfont}
@@ -41,15 +41,21 @@
 \newpage
 \section{Development}
 \subsection{Verification of nodal analysis in DC}
-We wired a circuit as shown in the diagram in figure %ref
-%circuito
+We wired a circuit as shown in the diagram in figure \ref{fig:1}
+\begin{figure}[H]
+    \caption{Circuit diagram}
+    \label{fig:1}
+\end{figure}
 then, we measured voltage values in each node and currents in each resistor and each voltage
 source. Then, measuring the voltage in each resistor, we calculated power values for each
 component.
 \subsubsection{Measurements}
 First, in order to use nodal analysis to find the voltages in the nodes of our circuit, first we
-need to declare the circuit currents, in this case, we do it as shown in figure %fig:
-%diagrama2
+need to declare the circuit currents, in this case, we do it as shown in figure \ref{fig:2}
+\begin{figure}[H]
+    \caption{Diagram with nodes and currents}
+    \label{fig:2}
+\end{figure}
 Also, looking in the circuit, we note that our circuit has a supernode going between $V_2$ and
 $V_3$, therefore:
 \[V_2-V_3=\SI{5}{\volt}\]
@@ -117,9 +123,38 @@ For $V_{S2}$:
 \begin{gather*}
     V_{S2} = I_{R_1}+I_{R_4} =
     \SI{-17.982}{\milli\ampere}-(\SI{-4.509}{\milli\ampere})\\
-    \therefore V_{S1} = \SI{-13.473}{\milli\ampere}
+    \therefore V_{S2} = \SI{-13.473}{\milli\ampere}
 \end{gather*}
 Power values for each component in the circuit are given as follows, for $R_1$:
+\begin{gather*}
+    P_{R1}=(I_{R1})^2(R_1)=(\SI{-17.982}{\milli\ampere})^2(\SI{330}{\ohm})\\
+    \therefore P_{R1}=\SI{0.107}{\watt}
+\end{gather*}
+For $R_2$:
+\begin{gather*}
+    P_{R2}=(I_{R2})^2(R_2)=(\SI{934}{\micro\ampere})^2(\SI{1}{\kilo\ohm})\\
+    \therefore P_{R2}=\SI{8.724e-4}{\watt}
+\end{gather*}
+For $R_3$:
+\begin{gather*}
+    P_{R3}=(I_{R3})^2(R_3)=(\SI{14.403}{\milli\ampere})^2(\SI{560}{\ohm})\\
+    \therefore P_{R3}=\SI{0.116}{\watt}
+\end{gather*}
+For $R_4$:
+\begin{gather*}
+    P_{R4}=(I_{R4})^2(R_4)=(\SI{-4.509}{\milli\ampere})^2(\SI{680}{\ohm})\\
+    \therefore P_{R4}=\SI{0.014}{\watt}
+\end{gather*}
+For $V_{S1}$:
+\begin{gather*}
+    P_{S1}=(V_{S1})(I_{S1})=(\SI{9}{\volt})(\SI{-18.916}{\milli\ampere})\\
+    \therefore P_{S1}=\SI{-0.170}{\watt}
+\end{gather*}
+For $V_{S2}$:
+\begin{gather*}
+    P_{S2}=(V_{S2})(I_{S1})=(\SI{5}{\volt})(\SI{-13.473}{\milli\ampere})\\
+    \therefore P_{S2}=\SI{-0.067}{\watt}
+\end{gather*}
 \begin{figure}[H]
     \centering
     \begin{tabular}{|c|c|c|c|}
@@ -154,12 +189,12 @@ Power values for each component in the circuit are given as follows, for $R_1$:
     Measurements & Theoretical & Measured & Simulated & 
     Absorb(A)/\\
      &  Power (\si{\watt}) &  Power (\si{\watt})  & Power (\si{\watt}) & Supply(S)\\\hline
-        $R_1$ & & 0.108 & 0.106 &A\\\hline
-        $R_2$ & & \num{8.94e-4}& \num{8.71e-4}&A\\\hline
-        $R_3$ & & 0.117 & 0.116 &A\\\hline
-        $R_4$ & & 0.013 & 0.014&A\\\hline
-        $V_{S1}$ & &-0.164 & -0.170&S\\\hline
-        $V_{S2}$ & & -0.067 & -0.067&S\\\hline
+        $R_1$ & 0.107 & 0.108 & 0.106 &A\\\hline
+        $R_2$ & \num{8.724e-4} & \num{8.940e-4}& \num{8.710e-4}&A\\\hline
+        $R_3$ & 0.116 & 0.117 & 0.116 &A\\\hline
+        $R_4$ & 0.014 & 0.013 & 0.014&A\\\hline
+        $V_{S1}$ & -0.170 &-0.164 & -0.170&S\\\hline
+        $V_{S2}$ & -0.067 & -0.067 & -0.067&S\\\hline
     \end{tabular}
     \caption{Calculated, measured and theoretical power values for each component}
 \end{figure}

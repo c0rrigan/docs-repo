@@ -1,0 +1,186 @@
+\documentclass[letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tocloft,siunitx,amssymb,amsmath,graphicx,float}
+\usepackage[top=3cm,left=3cm,right=3cm]{geometry}
+%\usepackage{float,pgf,pgfplots}
+%\usepackage[american]{circuitikz}
+\graphicspath{{img/}}
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+\renewcommand\cftsubsubsecdotsep{\cftdot}
+\title{Lab 6:Nodal Analysis}
+\author{
+    Sebastián Nava López\\
+    \and
+    Ericka Sabrina Pensamiento R.\\
+    \and
+    Salvador Palos Gil
+}
+%\captionsetup[subfigure]{justification=raggedright}
+\begin{document}
+\begin{titlepage}
+    \centering
+    {\Huge Instituto Politécnico Nacional}\\[3ex]
+    {\huge Escuela Superior de Cómputo}\\[8ex]
+    {\huge Fundamental Circuit Analysis}\\[12ex]
+    {\Large Lab 6:Nodal Analysis(DC)}\\[20ex]
+    {\Large Group: 1CV5 Team: 7 \\[8ex]
+    Sebastian Nava López\\[4ex]
+    Sabrina Erika Pensamiento Robledo\\[4ex]
+    Salvador Palos Gil\\[18ex]
+    }
+    \large{Elaboration:April 24, 2018 \hspace{8em} Due date:May 1, 2018}
+\end{titlepage}
+\tableofcontents
+\newpage
+\section{Introduction}
+\newpage
+\section{Development}
+\subsection{Verification of nodal analysis in DC}
+We wired a circuit as shown in the diagram in figure %ref
+%circuito
+then, we measured voltage values in each node and currents in each resistor and each voltage
+source. Then, measuring the voltage in each resistor, we calculated power values for each
+component.
+\subsubsection{Measurements}
+First, in order to use nodal analysis to find the voltages in the nodes of our circuit, first we
+need to declare the circuit currents, in this case, we do it as shown in figure %fig:
+%diagrama2
+Also, looking in the circuit, we note that our circuit has a supernode going between $V_2$ and
+$V_3$, therefore:
+\[V_2-V_3=\SI{5}{\volt}\]
+\begin{equation}
+    V_2 = \SI{5}{\volt}+V_3
+    \label{eq:1}
+\end{equation}
+Then, applying \textit{KCL} in the supernode:
+\[I_1+I_2=1_2+I_4\]
+Using Ohm's Law to express the currents:
+\begin{gather*}
+    \frac{V_3-V_1}{\SI{330}{\ohm}}-\frac{V_2}{\SI{560}{\ohm}}=\frac{V_1-V_2}{\SI{1}{\kilo\ohm}}-\frac{V_3}{\SI{680}{\ohm}}\\
+    \frac{1}{10}\Bigg[\frac{V_3-V_1}{\SI{330}{\ohm}}-\frac{V_2}{\SI{560}{\ohm}}=\frac{V_1-V_2}{\SI{1}{\kilo\ohm}}-\frac{V_3}{\SI{680}{\ohm}}\Bigg]
+\end{gather*}
+\begin{equation}
+    \frac{V_3-V_1}{33}-\frac{V_2}{56}=\frac{V_1-V_2}{100}-\frac{V_3}{68}
+    \label{eq:2}
+\end{equation}
+Also, we know that voltage in node $V_1$ is given by:
+\begin{equation}
+    V_1=\SI{9}{\volt}
+    \label{eq:3}
+\end{equation}
+Using \eqref{eq:1} and \eqref{eq:3} in \eqref{eq:2}:
+\begin{gather*}
+    \frac{V_3}{33}-\frac{9}{33}+\frac{5+V_3}{56}=\frac{9}{100}-\frac{5+V_3}{100}\\
+    -\frac{9}{33}+\frac{5}{56}+\frac{5}{100}-\frac{9}{100}=-\frac{V_3}{100}-\frac{V_3}{56}-\frac{V_3}{100}-\frac{V_3}{68}\\
+    -\frac{3441}{15400}=\frac{-(56)(100)(68)V_3-(33)(100)(68)V_3-(33)(56)(68)V_3-(33)(56)(100)V_3}{(100)(33)(56)(68)}\\
+    -\frac{3441}{15400}=-\frac{915664V_3}{(100)(33)(56)(68)}\\
+    V_3=\frac{(3441)(100)(33)(56)(68)}{(-915664)(15400)}\\
+    \therefore V_3=\SI{3.066}{\volt}
+\end{gather*}
+By using \eqref{eq:1}, $V_2$ is given by:
+\begin{gather*}
+    V_2=\SI{5}{\volt}+\SI{3.066}{\volt}\\
+    \therefore V_2 = \SI{8.066}{\volt}
+\end{gather*}
+The currents in the resistors are, for $R_1$:
+\begin{gather*}
+    I_{R1}=\frac{V_3-V_1}{R_1}=\frac{3.066-9}{\SI{330}{\ohm}}\\
+    \therefore I_{R1}=\SI{-17.982}{\milli\ampere}
+\end{gather*}
+For $R_2$:
+\begin{gather*}
+    I_{R1}=\frac{V_1-V_2}{R_2}=\frac{9-8.066}{\SI{1}{\kilo\ohm}}\\
+    \therefore I_{R1}=\SI{934}{\micro\ampere}
+\end{gather*}
+For $R_3$:
+\begin{gather*}
+    I_{R3}=\frac{V_2}{R_3}=\frac{8.066}{\SI{560}{\ohm}}\\
+    \therefore I_{R3}=\SI{14.403}{\milli\ampere}
+\end{gather*}
+For $R_4$:
+\begin{gather*}
+    I_{R4}=\frac{-V_3}{R_4}=\frac{-3.066}{\SI{680}{\ohm}}\\
+    \therefore I_{R4}=\SI{-4.509}{\milli\ampere}
+\end{gather*}
+Current values for each current source are given as follows. For $V_{S1}$:
+\begin{gather*}
+    V_{S1} = I_{R_1}-I_{R_2} =
+    \SI{-17.982}{\milli\ampere}-\SI{934}{\micro\ampere}\\
+    \therefore V_{S1} = \SI{-18.916}{\milli\ampere}
+\end{gather*}
+For $V_{S2}$:
+\begin{gather*}
+    V_{S2} = I_{R_1}+I_{R_4} =
+    \SI{-17.982}{\milli\ampere}-(\SI{-4.509}{\milli\ampere})\\
+    \therefore V_{S1} = \SI{-13.473}{\milli\ampere}
+\end{gather*}
+Power values for each component in the circuit are given as follows, for $R_1$:
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Measurements & Theoretical Value($\si{\volt}$) & Measured Value($\si{\volt}$) & Simulated
+        Value($\si{\volt}$)\\\hline
+        $V_1$ & 9.000 & 9.120 &9.000 \\\hline
+        $V_2$ & 8.066 & 8.160 & 8.066 \\\hline
+        $V_3$ & 3.066 & 3.083 &3.066 \\\hline
+    \end{tabular}
+    \caption{Calculated, measured and theoretical voltage values for each node}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Measurements & Theoretical Value($\si{\milli\ampere}$) & Measured
+        Value($\si{\milli\ampere}$) & Simulated Value($\si{\milli\ampere}$)\\\hline
+        $I_{R1}$ & -17.982 & -17.780 & -17.980\\\hline
+        $I_{R2}$ & 0.934 & 0.940 & 0.871\\\hline
+        $I_{R3}$ & 14.403 & 14.408& 14.404\\\hline
+        $I_{R4}$ & -4.509 & 4.550 & 4.509\\\hline
+        $I_{S1}$ & -18.916& -18.240& -18.914\\\hline
+        $I_{S2}$ & -13.473 & -14.050& -13.471\\\hline
+    \end{tabular}
+    \caption{Calculated, measured and theoretical current values}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+    Measurements & Theoretical & Measured & Simulated & 
+    Absorb(A)/\\
+     &  Power (\si{\watt}) &  Power (\si{\watt})  & Power (\si{\watt}) & Supply(S)\\\hline
+        $R_1$ & & 0.108 & 0.106 &A\\\hline
+        $R_2$ & & \num{8.94e-4}& \num{8.71e-4}&A\\\hline
+        $R_3$ & & 0.117 & 0.116 &A\\\hline
+        $R_4$ & & 0.013 & 0.014&A\\\hline
+        $V_{S1}$ & &-0.164 & -0.170&S\\\hline
+        $V_{S2}$ & & -0.067 & -0.067&S\\\hline
+    \end{tabular}
+    \caption{Calculated, measured and theoretical power values for each component}
+\end{figure}
+\section{Questions}
+\textit{\textbf{Explain the operation of the oscilloscope}}\\
+%ans
+\textit{\textbf{What's the function of the signal generator?}}\\
+%ans
+\textit{\textbf{What are the Lissajous graphs for?}}\\
+%ans
+\textit{\textbf{What are the operating modes Y (t) and XY used for?}}\\
+%ans
+\textit{\textbf{Which means by coupling in D.C.?}}\\
+%ans
+\section{Conclusions}
+{\large Sabrina:}\\
+%
+\\[2ex]
+{\large Salvador:}\\
+%
+\\[2ex]
+{\large Sebastián:}\\
+%texto
+\end{document}

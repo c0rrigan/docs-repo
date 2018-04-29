@@ -3,8 +3,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{tocloft,siunitx,amssymb,amsmath,graphicx,float}
 \usepackage[top=3cm,left=3cm,right=3cm]{geometry}
-%\usepackage{pgf,pgfplots}
-%\usepackage[american]{circuitikz}
+\usepackage{pgf,pgfplots}
+\usepackage[american]{circuitikz}
 \graphicspath{{img/}}
 \renewcommand\cftsecfont{\normalfont}
 \renewcommand\cftsecpagefont{\normalfont}
@@ -43,16 +43,49 @@
 \subsection{Verification of nodal analysis in DC}
 We wired a circuit as shown in the diagram in figure \ref{fig:1}
 \begin{figure}[H]
+    \centering
+    \begin{circuitikz}[scale=0.95,transform shape]
+    \draw (0,0) to [V=$V_{S1}:\SI{9}{\volt}$,invert](0,3) -- (0,5)
+    to [R=$R_1:\SI{330}{\ohm}$](6,5) -- (6,3)
+    to [R=$R_4:\SI{680}{\ohm}$](6,0) -- (0,0)
+    (0,3) to [R=$R_2:\SI{1}{\kilo\ohm}$,*-*](3,3)
+    to [V=$V_{S2}:\SI{5}{\volt}$,-*](6,3)
+    (3,0) to [R=$R_3:\SI{560}{\ohm}$,*-*](3,3)
+    (3,0) to node[ground]{}(3,-0.3);
+    \end{circuitikz}
     \caption{Circuit diagram}
     \label{fig:1}
 \end{figure}
-then, we measured voltage values in each node and currents in each resistor and each voltage
-source. Then, measuring the voltage in each resistor, we calculated power values for each
+Then, we measured voltage values in each node and currents on each resistor and each voltage
+source. Afterwards, we measured the voltage in each resistor so we can calculate the power values for each
 component.
 \subsubsection{Measurements}
 First, in order to use nodal analysis to find the voltages in the nodes of our circuit, first we
 need to declare the circuit currents, in this case, we do it as shown in figure \ref{fig:2}
 \begin{figure}[H]
+    \centering
+    \begin{circuitikz}[scale=0.95,transform shape]
+    \draw (0,0) to [V=$V_{S1}$,invert](0,3) -- (0,5)
+    to [R=$R_1$](6,5) -- (6,3)
+    to [R=$R_4$](6,0) -- (0,0)
+    (0,3) to [R=$R_2$,*-*](3,3)
+    to [V=$V_{S2}$,-*](6,3)
+    (3,0) to [R=$R_3$,*-*](3,3)
+    (3,0) to node[ground]{}(3,-0.3);
+    \draw [<-,thick](2,4.5) -- (4,4.5);
+    \draw [->,thick](0.5,2.5) -- (2.5,2.5);
+    \draw [->,thick](3.5,2.5) -- (3.5,0.5);
+    \draw [->,thick](5.5,0.5) -- (5.5,2.5);
+    \draw {
+        [anchor = north west](2,4.5)node{$I_1$}
+        [anchor = north east](2.5,2.5)node{$I_2$}
+        [anchor = south west](3.5,0.5)node{$I_3$}
+        [anchor = north east](5.5,2.5)node{$I_4$}
+        [anchor = north east](0,3)node{$V_1$}
+        [anchor = north west](6,3)node{$V_3$}
+        [anchor = south east](3,3)node{$V_2$}
+        };
+    \end{circuitikz}
     \caption{Diagram with nodes and currents}
     \label{fig:2}
 \end{figure}
@@ -155,6 +188,13 @@ For $V_{S2}$:
     P_{S2}=(V_{S2})(I_{S1})=(\SI{5}{\volt})(\SI{-13.473}{\milli\ampere})\\
     \therefore P_{S2}=\SI{-0.067}{\watt}
 \end{gather*}
+\subsubsection{Simulation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.65\linewidth]{img/sim1}
+    \caption{Circuit simulation}
+\end{figure}
+\subsubsection{Measurements}
 \begin{figure}[H]
     \centering
     \begin{tabular}{|c|c|c|c|}

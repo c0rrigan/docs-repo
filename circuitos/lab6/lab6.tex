@@ -33,7 +33,7 @@
     Sabrina Erika Pensamiento Robledo\\[4ex]
     Salvador Palos Gil\\[18ex]
     }
-    \large{Elaboration:April 24, 2018 \hspace{8em} Due date:May 1, 2018}
+    \large{Elaboration: April 24, 2018 \hspace{8em} Due date: May 1, 2018}
 \end{titlepage}
 \tableofcontents
 \newpage
@@ -56,11 +56,11 @@ We wired a circuit as shown in the diagram in figure \ref{fig:1}
     \caption{Circuit diagram}
     \label{fig:1}
 \end{figure}
-Then, we measured voltage values in each node and currents on each resistor and each voltage
+Then, we measured voltage values in each node and currents on each resistor and voltage
 source. Afterwards, we measured the voltage in each resistor so we can calculate the power values for each
 component.
 \subsubsection{Measurements}
-First, in order to use nodal analysis to find the voltages in the nodes of our circuit, first we
+First, in order to use nodal analysis to find the voltages in the nodes of our circuit, we
 need to declare the circuit currents, in this case, we do it as shown in figure \ref{fig:2}
 \begin{figure}[H]
     \centering
@@ -89,14 +89,14 @@ need to declare the circuit currents, in this case, we do it as shown in figure 
     \caption{Diagram with nodes and currents}
     \label{fig:2}
 \end{figure}
-Also, looking in the circuit, we note that our circuit has a supernode going between $V_2$ and
+Also, looking into the circuit, we note that this has a supernode going between $V_2$ and
 $V_3$, therefore:
 \[V_2-V_3=\SI{5}{\volt}\]
 \begin{equation}
     V_2 = \SI{5}{\volt}+V_3
     \label{eq:1}
 \end{equation}
-Then, applying \textit{KCL} in the supernode:
+Then, applying \textit{KCL}\footnote{Kirchhoff's Current Law} in the supernode:
 \[I_1+I_2=1_2+I_4\]
 Using Ohm's Law to express the currents:
 \begin{gather*}
@@ -128,22 +128,22 @@ By using \eqref{eq:1}, $V_2$ is given by:
 \end{gather*}
 The currents in the resistors are, for $R_1$:
 \begin{gather*}
-    I_{R1}=\frac{V_3-V_1}{R_1}=\frac{3.066-9}{\SI{330}{\ohm}}\\
+    I_{R1}=\frac{V_3-V_1}{R_1}=\frac{\SI{3.066}{\volt}-\SI{9}{\volt}}{\SI{330}{\ohm}}\\
     \therefore I_{R1}=\SI{-17.982}{\milli\ampere}
 \end{gather*}
 For $R_2$:
 \begin{gather*}
-    I_{R1}=\frac{V_1-V_2}{R_2}=\frac{9-8.066}{\SI{1}{\kilo\ohm}}\\
+    I_{R1}=\frac{V_1-V_2}{R_2}=\frac{\SI{9}{\volt}-\SI{8.066}{\volt}}{\SI{1}{\kilo\ohm}}\\
     \therefore I_{R1}=\SI{934}{\micro\ampere}
 \end{gather*}
 For $R_3$:
 \begin{gather*}
-    I_{R3}=\frac{V_2}{R_3}=\frac{8.066}{\SI{560}{\ohm}}\\
+    I_{R3}=\frac{V_2}{R_3}=\frac{\SI{8.066}{\volt}}{\SI{560}{\ohm}}\\
     \therefore I_{R3}=\SI{14.403}{\milli\ampere}
 \end{gather*}
 For $R_4$:
 \begin{gather*}
-    I_{R4}=\frac{-V_3}{R_4}=\frac{-3.066}{\SI{680}{\ohm}}\\
+    I_{R4}=\frac{-V_3}{R_4}=\frac{\SI{-3.066}{\volt}}{\SI{680}{\ohm}}\\
     \therefore I_{R4}=\SI{-4.509}{\milli\ampere}
 \end{gather*}
 Current values for each current source are given as follows. For $V_{S1}$:
@@ -216,7 +216,7 @@ For $V_{S2}$:
         $I_{R1}$ & -17.982 & -17.780 & -17.980\\\hline
         $I_{R2}$ & 0.934 & 0.940 & 0.871\\\hline
         $I_{R3}$ & 14.403 & 14.408& 14.404\\\hline
-        $I_{R4}$ & -4.509 & 4.550 & 4.509\\\hline
+        $I_{R4}$ & -4.509 & 4.550 & -4.509\\\hline
         $I_{S1}$ & -18.916& -18.240& -18.914\\\hline
         $I_{S2}$ & -13.473 & -14.050& -13.471\\\hline
     \end{tabular}
@@ -239,16 +239,17 @@ For $V_{S2}$:
     \caption{Calculated, measured and theoretical power values for each component}
 \end{figure}
 \section{Questions}
-\textit{\textbf{Explain the operation of the oscilloscope}}\\
-%ans
-\textit{\textbf{What's the function of the signal generator?}}\\
-%ans
-\textit{\textbf{What are the Lissajous graphs for?}}\\
-%ans
-\textit{\textbf{What are the operating modes Y (t) and XY used for?}}\\
-%ans
-\textit{\textbf{Which means by coupling in D.C.?}}\\
-%ans
+\textit{\textbf{Which is a node in an electric circuit?}}\\
+A node is a point where two or more components have a common connection. Corresponds to a union of wires made of conductive material that have an electrical resistance close to 0.
+\textit{\textbf{What is the nodal voltage?}}\\
+The nodal voltage is that voltage that is in each node since this is different in each one of the nodes of the analysis
+\textit{\textbf{What is called a reference node?}}\\
+The reference node is the one that contains most of the elements connected to it and is chosen to simplify the system of equations, since this is given a value of 0 volts
+describe what the nodal analysis method consists of in the theory of circuits?
+\textit{\textbf{Describe what the nodal analysis method consists of in the theory of circuits?}}\\
+In the analysis of nodes, an equation is written for each node, provided that the sum of these currents is equal to zero at any moment, so that a load Q can never be accumulated in a node. These currents are written in terms of the voltages of each node of the circuit. Thus, in each relation the current must be given in terms of the tension that is our unknown, by the conductance.
+\textit{\textbf{What are the advantages of applying the nodal analysis method?}}\\
+The advantages of using the method of node analysis is that we can calculate the value of the voltages in each one more easily with a system of linear equations.
 \section{Conclusions}
 {\large Sabrina:}\\
 %
@@ -257,5 +258,19 @@ For $V_{S2}$:
 %
 \\[2ex]
 {\large Sebastián:}\\
-%texto
+This time we used nodal analysis to determine voltages in each node (except ground), 
+in order to do this, we proposed currents in a way that all nodes complied with Kirchhoff's
+current law. Then we were able to start our analysis, however, our circuit had the special
+case of \textit{supernode}, this was useful because we had an extra equation. In the
+end, our mathematical model just had one variable, after factoring and doing some
+operations, we had the voltage value of a node, then, using the other expressions, we
+finally had our three voltages. Finally, we used this values to determine current and power
+values in all components. 
+This kind of analysis was easier to do mathematically speaking, because we
+didn't had to solve a linear system of equations, nonetheless, we had to manipulate lots
+of rational numbers, so we had to do some extra work in order to solve our equation.
+At the end, when we compared our theoretical values and the ones we took from measuring the
+circuit, all of our values were quite close, at least in magnitude, however, the measured
+current value in $R_4$ differed from the theoretical and simulated value in sign, this could be
+attributed to a bad connection of the ammeter in the circuit. 
 \end{document}

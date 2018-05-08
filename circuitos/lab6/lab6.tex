@@ -38,6 +38,47 @@
 \tableofcontents
 \newpage
 \section{Introduction}
+The aim of nodal analysis is to determine the voltage at each node relative to the
+reference node (or ground). Once you have done this you can easily work out anything else you
+need. In the figure below, $V$ means the voltage of the node a with respect to node $r$. If we
+consider the node $r$ as a reference node, then $V$ is simply written as $V$, because the voltage
+of the reference node is zero.
+$V$ means the voltage of the node $b$ with respect to node $r$. If we consider the node $r$ as
+a reference node, then $V$ is simply written as $V$ , because the voltage of the reference bode
+is zero.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.65\linewidth]{img/img1}
+\end{figure}
+A current through a resistor can be calculated by using node-voltages as follows:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.65\linewidth]{img/img2}
+\end{figure}
+A voltage across a resistor can be calculated by using node-voltages as follows:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.65\linewidth]{img/img3}
+\end{figure}
+The nodal analysis is a systematic way of applying KCL at each essential node of a circuit and
+represents the branch current in terms of the node voltages. This will give us a set of equations
+that we solve together to find the node voltages. Once we find the node voltages we can use
+them to calculate any other currents or voltages of interest.
+Here, we will explain a simple example about nodal analysis:
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[scale=0.95,transform shape]
+        \draw (0,0) to [V = $\SI{100}{\volt}$,invert](0,3) 
+        to [R = $\SI{5}{\ohm}$](3,3)
+        to [R = $\SI{10}{\ohm}$](6,3) -- (9,3)
+        to [R = $\SI{20}{\ohm}$](9,0) -- (0,0)
+        (3,3) to [R = $\SI{30}{\ohm}$,*-*](3,0)
+        (6,3) to [R = $\SI{30}{\ohm}$,*-*](6,0);
+        \draw (4.5,0) ellipse (2 and .5);
+    \end{circuitikz}
+    \caption{Example ciruit}
+    \label{fig:img1}
+\end{figure}
 \newpage
 \section{Development}
 \subsection{Verification of nodal analysis in DC}

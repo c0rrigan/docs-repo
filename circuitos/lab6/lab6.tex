@@ -74,11 +74,60 @@ Here, we will explain a simple example about nodal analysis:
         to [R = $\SI{20}{\ohm}$](9,0) -- (0,0)
         (3,3) to [R = $\SI{30}{\ohm}$,*-*](3,0)
         (6,3) to [R = $\SI{30}{\ohm}$,*-*](6,0);
-        \draw (4.5,0) ellipse (2 and .5);
     \end{circuitikz}
-    \caption{Example ciruit}
+    \caption{Example circuit}
     \label{fig:img1}
 \end{figure}
+\hspace{0.3em}$-$Note that the "pair of nodes" at the bottom is actually 1 extended node. Thus the number
+of nodes is 3.
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[scale=0.95,transform shape]
+        \draw (0,0) to [V = $\SI{100}{\volt}$,invert](0,3) 
+        to [R = $\SI{5}{\ohm}$](3,3)
+        to [R = $\SI{10}{\ohm}$](6,3) -- (9,3)
+        to [R = $\SI{20}{\ohm}$](9,0) -- (0,0)
+        (3,3) to [R = $\SI{30}{\ohm}$,*-*](3,0)
+        (6,3) to [R = $\SI{30}{\ohm}$,*-*](6,0);
+        \draw (4.5,0) ellipse (2 and .5);
+        \draw{ 
+            [anchor = south east] (3,3) node {$N_1$}
+            [anchor = south west] (6,3) node {$N_2$}
+            [anchor = south west] (4.2,-1) node {$N_3$}
+        };
+    \end{circuitikz}
+    \caption{Nodes in circuit}
+    \label{fig:img2}
+\end{figure}
+\hspace{0.3em}$-$We will choose node 2 as the reference node and assign it a voltage of zero.
+\hspace{0.3em}$-$Write down Kirchoff's Current Law for each node. Call $V_1$ the voltage at node 1,
+$V_3$ the voltage at node 3, and remember that $V_2$ = 0. The result is the following system of
+equations:
+\begin{equation}
+    \frac{V_1}{30}+\frac{V_1-100}{5}+\frac{V_1-V_3}{10} = 0
+    \label{eq:int1} 
+\end{equation}
+\begin{equation}
+    \frac{V_3-V_1}{10}+\frac{V_3}{10}+\frac{V_3}{20}=0
+    \label{eq:int2} 
+\end{equation}
+Equations \eqref{eq:int1} and \eqref{eq:int2} results from KCL applied at node 1 and the second equation results from KCL
+applied at node 3. Collecting terms this becomes:
+\begin{equation}
+    \Bigg(\frac{1}{30}+\frac{1}{5}+\frac{1}{10}\Bigg)V_1+\Bigg(\frac{1}{10}\Bigg)V_3 =
+    \frac{100}{5}
+    \label{eq:int3} 
+\end{equation}
+\begin{equation}
+    \Bigg(\frac{-1}{10}\Bigg)V_1+\Bigg(\frac{1}{10}+\frac{1}{10}+\frac{1}{20}\Bigg)V_3=0
+    \label{eq:int4} 
+\end{equation}
+Solving the equation system formed by \eqref{eq:int3} and \eqref{eq:int4} using Gaussian elimination or some other method gives
+the following voltages:
+\begin{gather*}
+    V_1 = \SI{68.2}{\volt}\\
+    V_3 = \SI{27.3}{\volt}
+\end{gather*}
 \newpage
 \section{Development}
 \subsection{Verification of nodal analysis in DC}
@@ -305,10 +354,15 @@ conductance.\\
 The advantages of using the method of node analysis is that we can calculate the value of the voltages in each one more easily with a system of linear equations.
 \section{Conclusions}
 {\large Sabrina:}\\
-%
+This kind of analysis is necessary to solve and/or scrutiny a wide variety of electric
+circuits; and it’s complementary to mesh analysis. This is a great way to obtain precise
+information from a circuit, as well as obtain quickly the tension in every node. It may
+also make analysis easier if other methods are unavailable or way longer to work out.
 \\[2ex]
 {\large Salvador:}\\
-%
+In this practice we use Nodal Analysis to know what would be the current measurements in
+each of the nodes of the circuit proposed in practice. And also the analysis of nodes
+serves to know the amount of current experienced by each component.
 \\[2ex]
 {\large Sebastián:}\\
 This time we used nodal analysis to determine voltages in each node (except ground), 

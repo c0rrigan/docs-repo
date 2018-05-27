@@ -40,6 +40,7 @@
 \section{Introduction}
 \newpage
 \section{Development}
+\subsection{Calculations}
 Using the circuit shown in Fig.\ref{fig:diag1}:
 \begin{figure}[H]
     \centering
@@ -324,6 +325,40 @@ The current in the resistor is:
 \SI{5.040}{\milli\ampere}\]
 Power in the resistor is given by:
 \[P_L = I_L\cdot\ V_L = (\SI{5.040}{\milli\ampere})(\SI{16.632}{\volt}) = \SI{0.083}{\watt}\]
+\subsection{Measurements}
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[scale=0.75,transform shape]
+        \draw (0,0) to [V = $\SI{5}{\volt}$,invert] (0,3)
+        to [R = $\SI{1}{\kilo\ohm}$] (2,3)
+        to [R = $\SI{470}{\ohm}$] (4,3)
+        to [V = $\SI{20}{\volt}$,invert] (6,3)
+        to [R = $\SI{1}{\kilo\ohm}$] (8,3)
+        to [V = $\SI{10}{\volt}$,invert] (10,3) 
+        to [short,-*](11,3)
+        (2,3) to [R = $\SI{1}{\kilo\ohm}$] (2,0)
+        (8,3) to [R = $\SI{2.2}{\kilo\ohm}$] (8,0)
+        (11,3) to [R = $R_L:\SI{3.3}{\kilo\ohm}$] (11,0)
+        (0,0) to [short,-*] (11,0);
+        \draw {
+            [anchor = south west](11,0) node {\textbf{A}}
+            [anchor = south west](11,3) node {\textbf{B}}
+        };
+    \end{circuitikz}
+    \caption{Diagram of the first circuit}
+    \label{fig:diag3}
+\end{figure}
+First, using the circuit shown in Fig.\ref{fig:diag3}, we measured current and voltage values in
+the load resistor $R_L$:
+\begin{table}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Measurements & Theoretical value & Measured value & Simulated value \\\hline
+        $I_L$ & \SI{}{\milli\ampere} & \SI{5.000}{\milli\ampere} & \SI{5.040}{\milli\ampere}\\\hline
+        $V_L$ & \SI{}{\volt} & \SI{16.780}{\volt} & \SI{16.632}{\volt}\\\hline
+        $P_L$ & \SI{}{\watt} & \SI{0.083}{\watt} & \SI{}{\watt}\\\hline
+    \end{tabular}
+\end{table}
 \section{Questions}
 \textit{\textbf{Explain the operation of the oscilloscope}}\\
 %ans

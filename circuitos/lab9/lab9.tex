@@ -50,14 +50,14 @@ Using the circuit shown in Fig.\ref{fig:diag1}:
         to [R = $\SI{470}{\ohm}$] (4,3)
         to [V = $\SI{20}{\volt}$,invert] (6,3)
         to [R = $\SI{1}{\kilo\ohm}$] (8,3)
-        to [V = $\SI{10}{\volt}$,invert] (10,3) 
+        to [V = $\SI{10}{\volt}$,invert] (10,3)
         to [short,-*](11,3)
         (2,3) to [R = $\SI{1}{\kilo\ohm}$] (2,0)
         (8,3) to [R = $\SI{2.2}{\kilo\ohm}$] (8,0)
         (0,0) to [short,-*] (11,0);
         \draw {
-            [anchor = south west](11,0) node {\textbf{A}}
-            [anchor = south west](11,3) node {\textbf{B}}
+            [anchor = south west](11,0) node {\textbf{B}}
+            [anchor = south west](11,3) node {\textbf{A}}
         };
     \end{circuitikz}
     \caption{Circuit diagram}
@@ -78,8 +78,8 @@ Fig.\ref{fig:diag2}:
         (6,3) to [R = $\SI{2.2}{\kilo\ohm}$] (6,0)
         (0,0) to [short,-*] (9,0);
         \draw {
-            [anchor = south west](9,0) node {\textbf{A}}
-            [anchor = south west](9,3) node {\textbf{B}}
+            [anchor = south west](9,0) node {\textbf{B}}
+            [anchor = south west](9,3) node {\textbf{A}}
         };
     \end{circuitikz}
     \caption{Resulting circuit after shorting the power sources}
@@ -99,12 +99,12 @@ resistances.
         (4,3) to [R = $\SI{2.2}{\kilo\ohm}$] (4,0)
         (0,0) to [short,-*] (7,0);
         \draw {
-            [anchor = south west](7,0) node {\textbf{A}}
-            [anchor = south west](7,3) node {\textbf{B}}
+            [anchor = south west](7,0) node {\textbf{B}}
+            [anchor = south west](7,3) node {\textbf{A}}
         };
     \end{circuitikz}
 \end{figure}
-Then, we combine the \SI{1}{\kilo\ohm} and \SI{1}{\kilo\ohm} resistors that are wired in parellel,
+Then, we combine the \SI{1}{\kilo\ohm} and \SI{1}{\kilo\ohm} resistors that are wired in parallel,
 the equivalent resistor is equal to
 $\frac{\SI{1}{\kilo\ohm}\cdot\SI{1}{\kilo\ohm}}{2(\SI{1}{\kilo\ohm})} = \SI{500}{\ohm}$
 \begin{figure}[H]
@@ -117,8 +117,8 @@ $\frac{\SI{1}{\kilo\ohm}\cdot\SI{1}{\kilo\ohm}}{2(\SI{1}{\kilo\ohm})} = \SI{500}
         (4,3) to [R = $\SI{2.2}{\kilo\ohm}$] (4,0)
         (0,0) to [short,-*] (7,0);
         \draw {
-            [anchor = south west](7,0) node {\textbf{A}}
-            [anchor = south west](7,3) node {\textbf{B}}
+            [anchor = south west](7,0) node {\textbf{B}}
+            [anchor = south west](7,3) node {\textbf{A}}
         };
     \end{circuitikz}
 \end{figure}
@@ -133,8 +133,8 @@ to $\SI{500}{\ohm}+\SI{1.47}{\kilo\ohm} = \SI{1.97}{\kilo\ohm}$
         (2,3) to [R = $\SI{2.2}{\kilo\ohm}$] (2,0)
         (0,0) to [short,-*] (5,0);
         \draw {
-            [anchor = south west](5,0) node {\textbf{A}}
-            [anchor = south west](5,3) node {\textbf{B}}
+            [anchor = south west](5,0) node {\textbf{B}}
+            [anchor = south west](5,3) node {\textbf{A}}
         };
     \end{circuitikz}
 \end{figure}
@@ -154,19 +154,19 @@ First we transform the \SI{5}{\volt} source to a current source:
         (4,3) to [R = $\SI{470}{\ohm}$] (6,3)
         to [V = $\SI{20}{\volt}$,invert] (8,3)
         to [R = $\SI{1}{\kilo\ohm}$] (10,3)
-        to [V = $\SI{10}{\volt}$,invert] (12,3) 
+        to [V = $\SI{10}{\volt}$,invert] (12,3)
         to [short,-*](13,3)
         (2,3) to [R = $\SI{1}{\kilo\ohm}$] (2,0)
         (4,3) to [R = $\SI{1}{\kilo\ohm}$] (4,0)
         (10,3) to [R = $\SI{2.2}{\kilo\ohm}$] (10,0)
         (0,0) to [short,-*] (13,0);
         \draw {
-            [anchor = south west](13,0) node {\textbf{A}}
-            [anchor = south west](13,3) node {\textbf{B}}
+            [anchor = south west](13,0) node {\textbf{B}}
+            [anchor = south west](13,3) node {\textbf{A}}
         };
     \end{circuitikz}
 \end{figure}
-Merging the \SI{1}{\kilo\ohm} resistor and the \SI{1}{\kilo\ohm} resistor connected in parellel yields a
+Merging the \SI{1}{\kilo\ohm} resistor and the \SI{1}{\kilo\ohm} resistor connected in parallel yields a
 equivalent resistor equal to:
 \[R_{eq} = \frac{(\SI{1}{\kilo\ohm})(\SI{1}{\kilo\ohm})}{2(\SI{1}{\kilo\ohm})} = \SI{500}{\ohm}\]
 \begin{figure}[H]
@@ -176,14 +176,14 @@ equivalent resistor equal to:
         (2,3) to [R = $\SI{470}{\ohm}$] (4,3)
         to [V = $\SI{20}{\volt}$,invert] (6,3)
         to [R = $\SI{1}{\kilo\ohm}$] (8,3)
-        to [V = $\SI{10}{\volt}$,invert] (10,3) 
+        to [V = $\SI{10}{\volt}$,invert] (10,3)
         to [short,-*](11,3)
         (2,3) to [R = $\SI{500}{\ohm}$] (2,0)
         (8,3) to [R = $\SI{2.2}{\kilo\ohm}$] (8,0)
         (0,0) to [short,-*] (11,0);
         \draw {
-            [anchor = south west](11,0) node {\textbf{A}}
-            [anchor = south west](11,3) node {\textbf{B}}
+            [anchor = south west](11,0) node {\textbf{B}}
+            [anchor = south west](11,3) node {\textbf{A}}
         };
     \end{circuitikz}
 \end{figure}
@@ -197,17 +197,17 @@ Next we transform the \SI{5}{\milli\ampere} current source to a voltage source:
         to [R = $\SI{470}{\ohm}$] (4,3)
         to [V = $\SI{20}{\volt}$,invert] (6,3)
         to [R = $\SI{1}{\kilo\ohm}$] (8,3)
-        to [V = $\SI{10}{\volt}$,invert] (10,3) 
+        to [V = $\SI{10}{\volt}$,invert] (10,3)
         to [short,-*](11,3)
         (8,3) to [R = $\SI{2.2}{\kilo\ohm}$] (8,0)
         (0,0) to [short,-*] (11,0);
         \draw {
-            [anchor = south west](11,0) node {\textbf{A}}
-            [anchor = south west](11,3) node {\textbf{B}}
+            [anchor = south west](11,0) node {\textbf{B}}
+            [anchor = south west](11,3) node {\textbf{A}}
         };
     \end{circuitikz}
 \end{figure}
-Combining the \SI{500}{\ohm} and \SI{470}{\ohm} resistors connected in series:   
+Combining the \SI{500}{\ohm} and \SI{470}{\ohm} resistors connected in series:
 \[R_{EQ} = \SI{500}{\ohm}+\SI{470}{\ohm} = \SI{970}{\ohm}\]
 \begin{figure}[H]
     \centering
@@ -216,13 +216,13 @@ Combining the \SI{500}{\ohm} and \SI{470}{\ohm} resistors connected in series:
         to [R = $\SI{970}{\ohm}$] (2,3)
         to [V = $\SI{20}{\volt}$,invert] (4,3)
         to [R = $\SI{1}{\kilo\ohm}$] (6,3)
-        to [V = $\SI{10}{\volt}$,invert] (8,3) 
+        to [V = $\SI{10}{\volt}$,invert] (8,3)
         to [short,-*](9,3)
         (6,3) to [R = $\SI{2.2}{\kilo\ohm}$] (6,0)
         (0,0) to [short,-*] (9,0);
         \draw {
-            [anchor = south west](9,0) node {\textbf{A}}
-            [anchor = south west](9,3) node {\textbf{B}}
+            [anchor = south west](9,0) node {\textbf{B}}
+            [anchor = south west](9,3) node {\textbf{A}}
         };
     \end{circuitikz}
 \end{figure}
@@ -236,13 +236,13 @@ Changing the order of the components and combining resistors and voltage sources
     \begin{circuitikz}[scale=0.75,transform shape]
         \draw (0,0) to [V,label = $\SI{22.5}{\volt}$,invert] (0,3)
         to [R = $\SI{1.97}{\kilo\ohm}$] (3,3)
-        to [V = $\SI{10}{\volt}$,invert] (6,3) 
+        to [V = $\SI{10}{\volt}$,invert] (6,3)
         to [short,-*](6,3)
         (3,3) to [R = $\SI{2.2}{\kilo\ohm}$] (3,0)
         (0,0) to [short,-*] (6,0);
         \draw {
-            [anchor = south west](6,0) node {\textbf{A}}
-            [anchor = south west](6,3) node {\textbf{B}}
+            [anchor = south west](6,0) node {\textbf{B}}
+            [anchor = south west](6,3) node {\textbf{A}}
         };
     \end{circuitikz}
 \end{figure}
@@ -252,14 +252,14 @@ Transforming the voltage source into a current source:
     \centering
     \begin{circuitikz}[scale=0.75,transform shape]
         \draw (0,0) to [I,label = $\SI{11.421}{\milli\ampere}$] (0,3) -- (4,3)
-        (4,3) to [V = $\SI{10}{\volt}$,invert] (7,3) 
+        (4,3) to [V = $\SI{10}{\volt}$,invert] (7,3)
         to [short,-*](7,3)
         (2,3) to [R = $\SI{1.97}{\kilo\ohm}$] (2,0)
         (4,3) to [R = $\SI{2.2}{\kilo\ohm}$] (4,0)
         (0,0) to [short,-*] (7,0);
         \draw {
-            [anchor = south west](7,0) node {\textbf{A}}
-            [anchor = south west](7,3) node {\textbf{B}}
+            [anchor = south west](7,0) node {\textbf{B}}
+            [anchor = south west](7,3) node {\textbf{A}}
         };
     \end{circuitikz}
 \end{figure}
@@ -271,13 +271,13 @@ Combining the parallel resistors we have that:
     \centering
     \begin{circuitikz}[scale=0.75,transform shape]
         \draw (0,0) to [I,label = $\SI{11.421}{\milli\ampere}$] (0,3) -- (2,3)
-        (2,3) to [V = $\SI{10}{\volt}$,invert] (5,3) 
+        (2,3) to [V = $\SI{10}{\volt}$,invert] (5,3)
         to [short,-*](5,3)
         (2,3) to [R = $\SI{1039}{\ohm}$] (2,0)
         (0,0) to [short,-*] (5,0);
         \draw {
-            [anchor = south west](5,0) node {\textbf{A}}
-            [anchor = south west](5,3) node {\textbf{B}}
+            [anchor = south west](5,0) node {\textbf{B}}
+            [anchor = south west](5,3) node {\textbf{A}}
         };
     \end{circuitikz}
 \end{figure}
@@ -286,14 +286,14 @@ Transforming the current source to a voltage source:
 \begin{figure}[H]
     \centering
     \begin{circuitikz}[scale=0.75,transform shape]
-        \draw (0,0) to [V,label = $\SI{11.87}{\volt}$,invert] (0,3) 
+        \draw (0,0) to [V,label = $\SI{11.87}{\volt}$,invert] (0,3)
         to [R = $\SI{1039}{\ohm}$](2,3)
-        to [V = $\SI{10}{\volt}$,invert] (5,3) 
+        to [V = $\SI{10}{\volt}$,invert] (5,3)
         to [short,-*](5,3)
         (0,0) to [short,-*] (5,0);
         \draw {
-            [anchor = south west](5,0) node {\textbf{A}}
-            [anchor = south west](5,3) node {\textbf{B}}
+            [anchor = south west](5,0) node {\textbf{B}}
+            [anchor = south west](5,3) node {\textbf{A}}
         };
     \end{circuitikz}
 \end{figure}
@@ -302,12 +302,12 @@ Then we change the order of series elements and merging both voltage sources:
 \begin{figure}[H]
     \centering
     \begin{circuitikz}[scale=0.75,transform shape]
-        \draw (0,0) to [V,label = $\SI{21.87}{\volt}$,invert] (0,3) 
+        \draw (0,0) to [V,label = $\SI{21.87}{\volt}$,invert] (0,3)
         to [R = $\SI{1039}{\ohm}$,-*](4,3)
         (0,0) to [short,-*] (4,0);
         \draw {
-            [anchor = south west](4,0) node {\textbf{A}}
-            [anchor = south west](4,3) node {\textbf{B}}
+            [anchor = south west](4,0) node {\textbf{B}}
+            [anchor = south west](4,3) node {\textbf{A}}
         };
     \end{circuitikz}
 \end{figure}
@@ -334,30 +334,70 @@ Power in the resistor is given by:
         to [R = $\SI{470}{\ohm}$] (4,3)
         to [V = $\SI{20}{\volt}$,invert] (6,3)
         to [R = $\SI{1}{\kilo\ohm}$] (8,3)
-        to [V = $\SI{10}{\volt}$,invert] (10,3) 
+        to [V = $\SI{10}{\volt}$,invert] (10,3)
         to [short,-*](11,3)
         (2,3) to [R = $\SI{1}{\kilo\ohm}$] (2,0)
         (8,3) to [R = $\SI{2.2}{\kilo\ohm}$] (8,0)
         (11,3) to [R = $R_L:\SI{3.3}{\kilo\ohm}$] (11,0)
         (0,0) to [short,-*] (11,0);
         \draw {
-            [anchor = south west](11,0) node {\textbf{A}}
-            [anchor = south west](11,3) node {\textbf{B}}
+            [anchor = south west](11,0) node {\textbf{B}}
+            [anchor = south west](11,3) node {\textbf{A}}
         };
     \end{circuitikz}
     \caption{Diagram of the first circuit}
     \label{fig:diag3}
 \end{figure}
-First, using the circuit shown in Fig.\ref{fig:diag3}, we measured current and voltage values in
+First, using the circuit shown in Fig.\ref{fig:diag3} , we measured current and voltage values in
 the load resistor $R_L$:
-\begin{table}
+\begin{table}[H]
+    \centering
     \begin{tabular}{|c|c|c|c|}
         \hline
         Measurements & Theoretical value & Measured value & Simulated value \\\hline
-        $I_L$ & \SI{}{\milli\ampere} & \SI{5.000}{\milli\ampere} & \SI{5.040}{\milli\ampere}\\\hline
-        $V_L$ & \SI{}{\volt} & \SI{16.780}{\volt} & \SI{16.632}{\volt}\\\hline
-        $P_L$ & \SI{}{\watt} & \SI{0.083}{\watt} & \SI{}{\watt}\\\hline
+        $I_L$ & \SI{5.040}{\milli\ampere} & \SI{5.000}{\milli\ampere} & \SI{5.040}{\milli\ampere}\\\hline
+        $V_L$ & \SI{16.632}{\volt} & \SI{16.780}{\volt} & \SI{16.632}{\volt}\\\hline
+        $P_L$ & \SI{0.083}{\watt} & \SI{0.083}{\watt} & \SI{}{\watt}\\\hline
     \end{tabular}
+    \caption{Current, power and voltage values in load resistor($R_L$)}
+\end{table}
+Then we retired the load resistor and measured voltage and current between nodes $A$ and $B$:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Measurements & Theoretical value & Measured value & Simulated value \\\hline
+        $I_{AB}$ & \SI{21.649}{\milli\ampere} & \SI{21.200}{\milli\ampere} & \SI{5.040}{\milli\ampere}\\\hline
+        $V_{AB}$ & \SI{21.870}{\volt} & \SI{21.800}{\volt} & \SI{16.632}{\volt}\\\hline
+        $R_{TH} = \frac{V_{AB}}{I_{AB}}$ & \SI{1039.328}{\ohm} & \SI{1028.300}{\ohm} & \SI{}{\ohm}\\\hline
+    \end{tabular}
+    \caption{Current, resistance and voltage values between nodes $A$ and $B$}
+\end{table}
+Finally we assembled a circuit as shown in Fig.\ref{fig:diag4}:
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw (0,0) to [V = $V_{TH}:\SI{21.87}{\volt}$,invert](0,2)
+        to [R = $R_{TH}:\SI{1039.328}{\ohm}$] (2,2)
+        to [R = $R_L:\SI{3.3}{\kilo\ohm}$] (2,0) -- (0,0);
+    \end{circuitikz}
+    \caption{Circuit using Thévenin-equivalent components}
+    \label{fig:diag4}
+\end{figure}
+To reproduce the effect of the Thévenin-equivalent resistor($R_{TH}$) we used a potentiometer
+adjusted to the value of $R_{TH}$, in this case, we measured current and voltage values flowing
+through the load resistor($R_L$):
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Measurements & Theoretical value & Measured value & Simulated value \\\hline
+        $I_L$ & \SI{5.040}{\milli\ampere} & \SI{5.000}{\milli\ampere} & \SI{5.040}{\milli\ampere}\\\hline
+        $V_L$ & \SI{16.632}{\volt} & \SI{16.780}{\volt} & \SI{16.670}{\volt}\\\hline
+        $P_L$ & \SI{0.083}{\watt} & \SI{0.083}{\watt} & \SI{}{\watt}\\\hline
+    \end{tabular}
+    \caption{Current, power and voltage values in load resistor($R_L$) using Thévenin-equivalent
+    components}
 \end{table}
 \section{Questions}
 \textit{\textbf{Explain the operation of the oscilloscope}}\\
@@ -382,5 +422,13 @@ the load resistor $R_L$:
 %
 \\[2ex]
 {\large\textbf{Sebastián:}}\\
-%texto
+In this experiment we measured the current and voltage output in a pair of terminals in our
+circuit, as well as in the terminal connected to this terminals, known as load resistor, then we found the Thévenin-equivalent($R_{TH}$) resistor doing the respective process, and the
+Thévenin-equivalent voltage($V_{TH}$) using source transformation to find the voltage going through the
+established terminals, with this information we found that assembling a circuit using a voltage
+source with the voltage value of $V_{TH}$ and a resistor connected in series with the resistance
+value of $R_{TH}$ had the same voltage and current when the ends of the resistor and the voltage
+source are connected to a voltmeter or a ammeter, therefore when the load resistor was connected
+to the terminals the current and voltage values through the resistor were the same as when the
+resistor was connected to the complete circuit, verifying Thévenin's theorem.
 \end{document}

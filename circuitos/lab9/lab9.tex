@@ -2,7 +2,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{tocloft,siunitx,amssymb,amsmath,graphicx,subcaption}
-\usepackage[top=3cm,left=3cm,right=3cm]{geometry}
+\usepackage[top=3cm,left=3cm,right=3cm,bottom=3cm]{geometry}
 \usepackage{float,pgf,pgfplots}
 \usepackage[american]{circuitikz}
 \graphicspath{{img/}}
@@ -33,7 +33,7 @@
     Sabrina Erika Pensamiento Robledo\\[4ex]
     Salvador Palos Gil\\[18ex]
     }
-    \large{Elaboration:?? \hspace{8em} Due date:??}
+    \large{Elaboration: May 22, 2018\hspace{8em} Due date: May 29, 2018}
 \end{titlepage}
 \tableofcontents
 \newpage
@@ -325,6 +325,27 @@ The current in the resistor is:
 \SI{5.040}{\milli\ampere}\]
 Power in the resistor is given by:
 \[P_L = I_L\cdot\ V_L = (\SI{5.040}{\milli\ampere})(\SI{16.632}{\volt}) = \SI{0.083}{\watt}\]
+\subsection{Simulation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.85\linewidth]{sim1}
+    \caption{Circuit with load resistor($R_L$)}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.85\linewidth]{sim2}
+    \caption{Circuit without load resistor($R_L$), current measurement}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.85\linewidth]{sim3}
+    \caption{Circuit without load resistor($R_L$), voltage measurement}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\linewidth]{sim4}
+    \caption{Circuit with Thévenin-equivalent voltage and resistor}
+\end{figure}
 \subsection{Measurements}
 \begin{figure}[H]
     \centering
@@ -430,5 +451,5 @@ source with the voltage value of $V_{TH}$ and a resistor connected in series wit
 value of $R_{TH}$ had the same voltage and current when the ends of the resistor and the voltage
 source are connected to a voltmeter or a ammeter, therefore when the load resistor was connected
 to the terminals the current and voltage values through the resistor were the same as when the
-resistor was connected to the complete circuit, verifying Thévenin's theorem.
+resistor was connected to the complete circuit, thus verifying Thévenin's theorem.
 \end{document}

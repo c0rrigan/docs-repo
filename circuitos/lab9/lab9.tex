@@ -28,7 +28,7 @@
     {\huge Escuela Superior de Cómputo}\\[8ex]
     {\huge Fundamental Circuit Analysis}\\[12ex]
     {\Large Lab 9: Thévenin's Theorem}\\[20ex]
-    {\Large Group: 1CV5 Team: 7 \\[8ex]
+    {\Large Group: 1CV7 Team: 7 \\[8ex]
     Sebastian Nava López\\[4ex]
     Sabrina Erika Pensamiento Robledo\\[4ex]
     Salvador Palos Gil\\[18ex]
@@ -38,6 +38,43 @@
 \tableofcontents
 \newpage
 \section{Introduction}
+Thévenin's theorem holds that:
+\begin{itemize}
+    \item {Any linear electrical network with voltage and current sources and resistances only
+        can be replaced at terminals $A-B$ by an equivalent voltage source $V_{TH}$ in series connection
+        with an equivalent resistance $R_{TH}$.}
+
+    \item {The equivalent voltage Vth is the voltage obtained at terminals $A-B$ of the network
+        with terminals $A-B$ open circuited.}
+    \item {The equivalent resistance $R_{TH}$ is the resistance that the circuit between terminals $A$ and
+        $B$ would have if all ideal voltage sources in the circuit were replaced by a short circuit and all ideal current sources were replaced by an open circuit}
+    \item {If terminals A and B are connected to one another, the current flowing from $A$ to
+        $B$
+        will be $V_{TH}/R_{TH}$. This means that $R_{TH}$ could alternatively be
+        calculated as $V_{TH}$ divided by
+        the short-circuit current between A and B when they are connected together.}
+\end{itemize}
+In circuit theory terms, the theorem allows any one-port network to be reduced to a single voltage source and a single impedance.
+The theorem also applies to frequency domain AC circuits consisting of reactive and resistive impedances. It means the theorem applies for AC in an exactly same way to DC except that resistances are generalized to impedances.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.85\linewidth]{thevenin}
+    \caption{Circuit's Thévenin-equivalent circuit}
+\end{figure}
+        The equivalent circuit is a voltage source with voltage $V_{TH}$ in series with a
+        resistance $R_{TH}$.
+        The Thévenin-equivalent voltage $V_{TH}$ is the open-circuit voltage at the output terminals of the original circuit. When calculating a Thévenin-equivalent voltage, the voltage divider principle is often useful, by declaring one terminal to be Vout and the other terminal to be at the ground point.
+
+        The Thévenin-equivalent resistance $R_{TH}$ is the resistance measured across points
+        $A$ and $B$ "looking back" into the circuit. The resistance is measured after replacing
+        all voltage and current-sources with their internal resistances. That means an ideal
+        voltage source is replaced with a short circuit, and an ideal current source is replaced
+        with an open circuit. Resistance can then be calculated across the terminals using the
+        formulae for series and parallel circuits. This method is valid only for circuits with
+        independent sources. If there are dependent sources in the circuit, another method must
+        be used such as connecting a test source across $A$ and $B$ and calculating the voltage across or current through the test source.
+
+        The replacements of voltage and current sources do what the sources would do if their values were set to zero. A zero valued voltage source would create a potential difference of zero volts between its terminals, regardless of the current that passes through it; its replacement, a short circuit, does the same thing. A zero valued current source passes zero current, regardless of the voltage across it; its replacement, an open circuit, does the same thing.
 \newpage
 \section{Development}
 \subsection{Calculations}
@@ -378,7 +415,7 @@ the load resistor $R_L$:
         Measurements & Theoretical value & Measured value & Simulated value \\\hline
         $I_L$ & \SI{5.040}{\milli\ampere} & \SI{5.000}{\milli\ampere} & \SI{5.040}{\milli\ampere}\\\hline
         $V_L$ & \SI{16.632}{\volt} & \SI{16.780}{\volt} & \SI{16.632}{\volt}\\\hline
-        $P_L$ & \SI{0.083}{\watt} & \SI{0.083}{\watt} & \SI{}{\watt}\\\hline
+        $P_L$ & \SI{0.083}{\watt} & \SI{0.083}{\watt} & \SI{0.083}{\watt}\\\hline
     \end{tabular}
     \caption{Current, power and voltage values in load resistor($R_L$)}
 \end{table}
@@ -388,21 +425,22 @@ Then we retired the load resistor and measured voltage and current between nodes
     \begin{tabular}{|c|c|c|c|}
         \hline
         Measurements & Theoretical value & Measured value & Simulated value \\\hline
-        $I_{AB}$ & \SI{21.649}{\milli\ampere} & \SI{21.200}{\milli\ampere} & \SI{5.040}{\milli\ampere}\\\hline
-        $V_{AB}$ & \SI{21.870}{\volt} & \SI{21.800}{\volt} & \SI{16.632}{\volt}\\\hline
-        $R_{TH} = \frac{V_{AB}}{I_{AB}}$ & \SI{1039.328}{\ohm} & \SI{1028.300}{\ohm} & \SI{}{\ohm}\\\hline
+        $I_{AB}$ & \SI{21.649}{\milli\ampere} & \SI{21.200}{\milli\ampere} & \SI{21.040}{\milli\ampere}\\\hline
+        $V_{AB}$ & \SI{21.870}{\volt} & \SI{21.800}{\volt} & \SI{21.870}{\volt}\\\hline
+        $R_{TH} = \frac{V_{AB}}{I_{AB}}$ & \SI{1039.328}{\ohm} & \SI{1028.300}{\ohm} &
+        \SI{1039.449}{\ohm}\\\hline
     \end{tabular}
     \caption{Current, resistance and voltage values between nodes $A$ and $B$}
 \end{table}
-Finally we assembled a circuit as shown in Fig.\ref{fig:diag4}:
+Finally we assembled a circuit as shown in the following diagram:
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}
+    \begin{circuitikz}[scale=0.75,transform shape]
         \draw (0,0) to [V = $V_{TH}:\SI{21.87}{\volt}$,invert](0,2)
         to [R = $R_{TH}:\SI{1039.328}{\ohm}$] (2,2)
         to [R = $R_L:\SI{3.3}{\kilo\ohm}$] (2,0) -- (0,0);
     \end{circuitikz}
-    \caption{Circuit using Thévenin-equivalent components}
+%    \caption{Circuit using Thévenin-equivalent components}
     \label{fig:diag4}
 \end{figure}
 To reproduce the effect of the Thévenin-equivalent resistor($R_{TH}$) we used a potentiometer
@@ -415,33 +453,35 @@ through the load resistor($R_L$):
         Measurements & Theoretical value & Measured value & Simulated value \\\hline
         $I_L$ & \SI{5.040}{\milli\ampere} & \SI{5.000}{\milli\ampere} & \SI{5.040}{\milli\ampere}\\\hline
         $V_L$ & \SI{16.632}{\volt} & \SI{16.780}{\volt} & \SI{16.670}{\volt}\\\hline
-        $P_L$ & \SI{0.083}{\watt} & \SI{0.083}{\watt} & \SI{}{\watt}\\\hline
+        $P_L$ & \SI{0.083}{\watt} & \SI{0.083}{\watt} & \SI{0.083}{\watt}\\\hline
     \end{tabular}
     \caption{Current, power and voltage values in load resistor($R_L$) using Thévenin-equivalent
     components}
 \end{table}
 \section{Questions}
-\textit{\textbf{Explain the operation of the oscilloscope}}\\
-%ans
-\textit{\textbf{What's the function of the signal generator?}}\\
-%ans
-\textit{\textbf{What are the Lissajous graphs for?}}\\
-%ans
-\textit{\textbf{What are the operating modes Y (t) and XY used for?}}\\
-%ans
-\textit{\textbf{Which means by coupling in D.C.?}}\\
-%ans
-\textit{\textbf{What is an offset signal?}}\\
-%ans
-\textit{\textbf{Which means that a signal is out of phase?}}\\
-%ans
+\textit{\textbf{What does the Thevenin’s theorem establish?}}\\
+States that we can replace an entire network by an equivalent circuit that contains only an
+independent voltage source in series with an impedance (resistor) such that the current-voltage
+relationship at the load is unchanged.\\
+\textit{\textbf{With what purpose was the tension measured with an open circuit and the current at short circuit between the nodes A and B, at the third part of the practice’s development?}}\\
+It is the first step to achieve or obtain an equivalent circuit which is way simpler than the
+former one, just as Thevenin proposed to simplify and analyze circuits. \\
+\textit{\textbf{Is there any difference between the calculated $R_{TH}$ and the measured one? Why?}}\\
+There’s barely any differences, but they exist because all electronic components can have minimal
+error while measuring, such as little voltage changes, natural resistance on conductive materials
+and little error margins on the equipment. But, in essence, the results are practically the
+same.\\
+\textit{\textbf{What is Thevenin’s theorem useful for?}}\\
+Thevenin's theorem is used to find fault current in fault analysis of power systems, to study and
+analyze efficiently an electrical circuit, to determine Change in Load Voltage: To predict range
+of load voltage variation due to change in load resistance, and several other uses.
 \section{Conclusions}
 {\large\textbf{Sabrina:}}\\
-%
-\\[2ex]
+Thevenin’s theorem is just the beginning of a very important set of theorems that allow us to understand electricity behaviour, analyse and simplify a circuit, and the first fundamental tool to understand Norton’s and Superposition theorems.
+\\[1.2ex]
 {\large\textbf{Salvador:}}\\
-%
-\\[2ex]
+Thevenin's theorem is a new way of analyzing an electrical circuit, as well as simplifying it to make calculations, to then use other theorems such as Norton's
+\\[1.2ex]
 {\large\textbf{Sebastián:}}\\
 In this experiment we measured the current and voltage output in a pair of terminals in our
 circuit, as well as in the terminal connected to this terminals, known as load resistor, then we found the Thévenin-equivalent($R_{TH}$) resistor doing the respective process, and the
